@@ -233,8 +233,6 @@ def search_property(request):
     )
     objects = Property.objects.all()  # Retrieve your data
 
-    print(developers_list)
-
     if keyword:
         objects = objects.filter(property_name__contains=keyword)
     if min_price:
@@ -273,8 +271,8 @@ def search_property(request):
     properties = Property.objects.filter()
     context = {
         "page_obj": page_obj,
-        "locations": locations_list,
-        "developers": developers_list,
+        "locations": sorted(locations_list),
+        "developers": sorted(developers_list),
     }
 
     template = loader.get_template("property-list.html")

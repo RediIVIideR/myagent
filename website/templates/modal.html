@@ -38,47 +38,47 @@
                 <span class="fa-lg mb-5">Type of Property</span>
         
                 <div class="form-check mt-3">
-                    <input class="form-check-input accommodation" type="checkbox" id="inlineCheckbox1" value="Apartments" autocompleted="">
+                    <input class="form-check-input accommodation" type="checkbox" id="inlineCheckbox1" value="apartments" autocompleted="">
                     <label class="form-check-label" for="inlineCheckbox1">Apartments</label>
                 </div>
         
                 <div class="form-check">
-                    <input class="form-check-input accommodation" type="checkbox" id="inlineCheckbox2" value="Villas" autocompleted="">
+                    <input class="form-check-input accommodation" type="checkbox" id="inlineCheckbox2" value="villas" autocompleted="">
                     <label class="form-check-label" for="inlineCheckbox2">Villas</label>
                 </div>
         
                 <div class="form-check">
-                    <input class="form-check-input accommodation" type="checkbox" id="inlineCheckbox3" value="Penthouses" autocompleted="">
+                    <input class="form-check-input accommodation" type="checkbox" id="inlineCheckbox3" value="penthouses" autocompleted="">
                     <label class="form-check-label" for="inlineCheckbox3">Penthouses</label>
                 </div>
         
                 <div class="form-check">
-                    <input class="form-check-input accommodation" type="checkbox" id="inlineCheckbox4" value="Townhouses">
+                    <input class="form-check-input accommodation" type="checkbox" id="inlineCheckbox4" value="townhouses">
                     <label class="form-check-label" for="inlineCheckbox4">Townhouses</label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input accommodation" type="checkbox" id="inlineCheckbox4" value="Duplex">
+                    <input class="form-check-input accommodation" type="checkbox" id="inlineCheckbox4" value="duplex">
                     <label class="form-check-label" for="inlineCheckbox4">Duplex</label>
                 </div>
                 </div>
         
             </div>
-            <div class="row justify-content-center" id="checkbox-example-filters" data-mdb-items=".checkbox-example-item" data-mdb-auto-filter="true">
-                <div class="col-md-6" data-mdb-filter="sale" style="margin-bottom: 15px;">
+            <div class="row justify-content-center">
+                <div class="col-md-6" style="margin-bottom: 15px;">
                     <span class="fa-lg mb-5">Location</span>
-                    {%for location in locations%}
-                    <div class="form-check">
-                        <input class="form-check-input location" type="checkbox" id="inlineCheckbox5" value="{{location}}">
-                        <label class="form-check-label" for="inlineCheckbox5">{{location}}</label>
-                    </div>
-                    {%endfor%}
+                    {% for location in locations %}
+                        <div class="form-check{% if forloop.first %} mt-2{% endif %}">
+                            <input class="form-check-input location" type="checkbox" id="inlineCheckbox{{ forloop.counter }}" value="{{ location }}">
+                            <label class="form-check-label" for="inlineCheckbox{{ forloop.counter }}">{{ location }}</label>
+                        </div>
+                    {% endfor %}
             
                     </div>
         
-                <div class="col-md-6" data-mdb-filter="sale" style="margin-bottom: 15px;">
-                <span class="fa-lg mb-5">Developers</span>
+                <div class="col-md-6" style="margin-bottom: 15px;">
+                <span class="fa-lg mb-3">Developers</span>
                     {%for developer in developers%}
-                    <div class="form-check">
+                    <div class="form-check{% if forloop.first %} mt-2{% endif %}">
                         <input class="form-check-input developer" type="checkbox" id="inlineCheckbox5" value="{{developer}}">
                         <label class="form-check-label" for="inlineCheckbox5">{{developer}}</label>
                     </div>
@@ -88,7 +88,10 @@
         </div>
         <div class="modal-footer">
         <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="width: 70%; margin: 0 auto;" id="apply">Apply Filters</button>
+            <div style="width: 80%; margin: 0 auto; text-align: center; display: inline-block;">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="width: 70%; display: inline;"  id="apply">Apply Filters</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="width: 15%;background-color: red; display: inline;" id="clear"><i class="fas fa-trash"></i></button>
+            </div>    
         </div>
     </div>
     </div>

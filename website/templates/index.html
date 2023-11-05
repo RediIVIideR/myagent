@@ -40,7 +40,25 @@
         </div>
         <!-- Header End -->
 
-        {% include 'modal.html' %}
+        
+<!-- Search Start -->
+<div class="container-fluid bg-primary-search mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
+    <div class="container searchbar">
+        <div class="row g-2">
+            <div class="col-md-10">
+                <div class="row g-2">
+                    <div class="col-md-12">
+                        <a href="/search"><input type="text" class="form-control border-0 py-3" placeholder="Search Keyword" id="search_backend"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <a href="/search"><button class="btn btn-filter border-0 w-100 py-3" data-bs-toggle="modal" data-bs-target="#FilterModal"><i class="fas fa-filter"></i></button></a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Search End -->
 
 
 
@@ -52,7 +70,7 @@
                         <div class="row g-4">
                             {% for property in properties %}
 
-                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="{% if forloop.counter0|divisibleby:3 %}0.1s{% elif forloop.counter0|add:1|divisibleby:3 %}0.5s{% else %}0.3s{% endif %}">
                                 <div class="property-item rounded overflow-hidden" style="height: 100%;">
                                     <div class="position-relative overflow-hidden">
                                         <a href=""><img class="img-fluid" src="{{property.property_image1}}" alt=""></a>
@@ -62,7 +80,7 @@
                                     <div class="p-4 pb-0">
                                         <a class="d-block h5 mb-3" href="/property?id={{property.id}}">{{property.property_name}}</a>
                                         <h5 class="text-primary mb-3">{{property.property_starting_price_aed}} | {{property.property_starting_price_usd}}</h5>
-                                        <p class="mb-3 location"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{property.property_location}} | {{property.property_developer}}</p>
+                                        <p class="mb-3 location"><i class="fa fa-map-marker-alt text-primary me-2"></i><a class="one-filter-location" href="/search?loc={{property.property_location}}">{{property.property_location}}</a> | <a class="one-filter-developer" href="/search?developer={{property.property_developer}}">{{property.property_developer}}</a></p>
                                         <p class="mb-3 location"><i class="fas fa-bed text-primary me-2"></i>Bed: {{property.property_bed_number}}</p>
                                     </div>
                                     
