@@ -47,11 +47,11 @@
         items: 1,
         dots: true,
         loop: true,
-        nav : true,
-        navText : [
-            '<i class="bi bi-chevron-left"></i>',
-            '<i class="bi bi-chevron-right"></i>'
-        ]
+        nav : false,
+        // navText : [
+        //     '<i class="bi bi-chevron-left"></i>',
+        //     '<i class="bi bi-chevron-right"></i>'
+        // ]
     });
 
 
