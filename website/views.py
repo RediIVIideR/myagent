@@ -10,6 +10,7 @@ from django.db.models import Q
 from django.core.paginator import Paginator
 from io import BytesIO
 import math
+from django.views.decorators.csrf import csrf_exempt
 
 # Create your views here.
 
@@ -58,7 +59,7 @@ def price_conversion(price):
 
 def parse_all(request):
     # start_page_url = "https://www.offplan-dubai.com/offplan-projects-in-dubai/#gridview"
-    for i in range(4, 11):
+    for i in range(5, 11):
         start_page_url = (
             f"https://www.offplan-dubai.com/offplan-projects-in-dubai/page/{i}/"
         )
@@ -74,8 +75,10 @@ def parse_all(request):
             # )
 
             soupp = BeautifulSoup(response.text, "html.parser")
-
-            project_name = soupp.find("h1", class_="w-blogpost-title").text
+            try:
+                project_name = soupp.find("h1", class_="w-blogpost-title").text
+            except:
+                continue
             print(i, project_name)
             existing_object = Property.objects.filter(
                 property_name=project_name
@@ -147,6 +150,8 @@ def parse_all(request):
                     if "Interiors and Units" in block or "Interiors & Units" in block:
                         unit_description = remove_non_unique(block.split("\n"))
                         unit_description = "^".join(unit_description[1:])
+                    else:
+                        unit_description = ""
 
                 # Payment Plan Extraction
                 try:
@@ -205,8 +210,8 @@ def parse_all(request):
 
 def main(request):
     slider = Slider.objects.filter()[0]
-    context = {"slider_photo": slider}
-    print(slider)
+    objects = Property.objects.all()[:6]
+    context = {"slider_photo": slider, "properties": objects}
     template = loader.get_template("index.html")
     return HttpResponse(template.render(context, request))
 
