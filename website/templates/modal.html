@@ -1,0 +1,114 @@
+<!-- Modal Filters -->
+<div class="modal fade" id="FilterModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Search Filter</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="row justify-content-center" id="checkbox-example-filters" data-mdb-items=".checkbox-example-item" data-mdb-auto-filter="true">
+                <div class="col-md-6" data-mdb-filter="color" style="margin-bottom: 15px;">
+                    <span class="fa-lg mb-5" >Bedrooms</span>
+            
+                    <div class="form-check mt-3 ">
+                        <input class="form-check-input bedding" type="checkbox" id="inlineCheckbox1" value="studio" autocompleted="">
+                        <label class="form-check-label" for="inlineCheckbox1">Studio</label>
+                    </div>
+                    <div class="form-check ">
+                        <input class="form-check-input bedding" type="checkbox" id="inlineCheckbox2" value="1" autocompleted="">
+                        <label class="form-check-label" for="inlineCheckbox2">1</label>
+                    </div>
+                    <div class="form-check ">
+                        <input class="form-check-input bedding" type="checkbox" id="inlineCheckbox2" value="2" autocompleted="">
+                        <label class="form-check-label" for="inlineCheckbox2">2</label>
+                    </div>
+            
+                    <div class="form-check ">
+                        <input class="form-check-input bedding" type="checkbox" id="inlineCheckbox3" value="3" autocompleted="">
+                        <label class="form-check-label" for="inlineCheckbox3">3</label>
+                    </div>
+            
+                    <div class="form-check ">
+                        <input class="form-check-input bedding" type="checkbox" id="inlineCheckbox4" value="4">
+                        <label class="form-check-label" for="inlineCheckbox4">4</label>
+                    </div>
+                    </div>
+                <div class="col-md-6" data-mdb-filter="color" style="margin-bottom: 15px;">
+                <span class="fa-lg mb-5">Type of Property</span>
+        
+                <div class="form-check mt-3">
+                    <input class="form-check-input accommodation" type="checkbox" id="inlineCheckbox1" value="Apartments" autocompleted="">
+                    <label class="form-check-label" for="inlineCheckbox1">Apartments</label>
+                </div>
+        
+                <div class="form-check">
+                    <input class="form-check-input accommodation" type="checkbox" id="inlineCheckbox2" value="Villas" autocompleted="">
+                    <label class="form-check-label" for="inlineCheckbox2">Villas</label>
+                </div>
+        
+                <div class="form-check">
+                    <input class="form-check-input accommodation" type="checkbox" id="inlineCheckbox3" value="Penthouses" autocompleted="">
+                    <label class="form-check-label" for="inlineCheckbox3">Penthouses</label>
+                </div>
+        
+                <div class="form-check">
+                    <input class="form-check-input accommodation" type="checkbox" id="inlineCheckbox4" value="Townhouses">
+                    <label class="form-check-label" for="inlineCheckbox4">Townhouses</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input accommodation" type="checkbox" id="inlineCheckbox4" value="Duplex">
+                    <label class="form-check-label" for="inlineCheckbox4">Duplex</label>
+                </div>
+                </div>
+        
+            </div>
+            <div class="row justify-content-center" id="checkbox-example-filters" data-mdb-items=".checkbox-example-item" data-mdb-auto-filter="true">
+                <div class="col-md-6" data-mdb-filter="sale" style="margin-bottom: 15px;">
+                    <span class="fa-lg mb-5">Location</span>
+                    {%for location in locations%}
+                    <div class="form-check">
+                        <input class="form-check-input location" type="checkbox" id="inlineCheckbox5" value="{{location}}">
+                        <label class="form-check-label" for="inlineCheckbox5">{{location}}</label>
+                    </div>
+                    {%endfor%}
+            
+                    </div>
+        
+                <div class="col-md-6" data-mdb-filter="sale" style="margin-bottom: 15px;">
+                <span class="fa-lg mb-5">Developers</span>
+                    {%for developer in developers%}
+                    <div class="form-check">
+                        <input class="form-check-input developer" type="checkbox" id="inlineCheckbox5" value="{{developer}}">
+                        <label class="form-check-label" for="inlineCheckbox5">{{developer}}</label>
+                    </div>
+                    {%endfor%}
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="width: 70%; margin: 0 auto;" id="apply">Apply Filters</button>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- Search Start -->
+<div class="container-fluid bg-primary-search mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
+    <div class="container searchbar">
+        <div class="row g-2">
+            <div class="col-md-10">
+                <div class="row g-2">
+                    <div class="col-md-12">
+                        <input type="text" class="form-control border-0 py-3" placeholder="Search Keyword" id="search_backend">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-filter border-0 w-100 py-3" data-bs-toggle="modal" data-bs-target="#FilterModal"><i class="fas fa-filter"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Search End -->

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {%load static%}
+    <title>My Agent Dubai | {{property.name}}</title>
+    {% include 'header.html' %}
+</head>
+
+<body>
+    
+    <div class="container-xxl bg-white p-0">
+        {% include 'menu.html' %}
+        
+
+
+        <!-- Header Start -->
+        <div class="container-fluid header bg-white p-0">
+            <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+                <div class="col-md-6 p-5 padtop mt-lg-5">
+                    <h1 class="display-5 animated fadeIn mb-4"><span class="">{{property.property_name}}</span></h1>
+                    <h5 class="text-primary mb-3"> Starting Price:  {{property.property_starting_price_aed}} | {{property.property_starting_price_usd}}</h5>
+                    <p class="mb-3 location" style="font-size: 18px;"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{property.property_location}} | {{property.property_developer}}</p>
+                    <p class="mb-3 location" style="font-size: 18px;"><i class="fas fa-building text-primary me-2"></i>{{property.property_accommodation_type}} | Bed: {{property.property_bed_number}}</p>
+                    <!-- <p class="mb-3 location" style="font-size: 18px;"><i class="fas fa-bed text-primary me-2"></i>{{property.property_bed_number}}</p> -->
+                    <p class="animated fadeIn mb-4 pb-2" style="font-size: 14px;">{{property.property_description}}</p>
+                    <!-- <a href="" class="btn btn-primary py-3 px-5 me-3 animated fadeIn btn-glow">Get Started</a> -->
+                </div>
+                <div class="col-md-6 animated fadeIn mt-lg-5 padtop">
+                    <div class="owl-carousel header-carousel">
+                        {% if property.property_image2%}
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="{{property.property_image2}}" alt="">
+                        </div>
+                        {%endif%}
+                        {% if property.property_image3%}
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="{{property.property_image3}}" alt="">
+                        </div>
+                        {%endif%}
+                        {% if property.property_image4%}
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="{{property.property_image4}}" alt="">
+                        </div>
+                        {%endif%}
+                        {% if property.property_image5%}
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="{{property.property_image5}}" alt="">
+                        </div>
+                        {%endif%}
+                        {% if property.property_image6%}
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="{{property.property_image6}}" alt="">
+                        </div>
+                        {%endif%}
+                        {% if property.property_image7%}
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="{{property.property_image7}}" alt="">
+                        </div>
+                        {%endif%}
+                        {% if property.property_image8%}
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="{{property.property_image8}}" alt="">
+                        </div>
+                        {%endif%}
+                        {% if property.property_image9%}
+                        <div class="owl-carousel-item">
+                            <img class="img-fluid" src="{{property.property_image9}}" alt="">
+                        </div>
+                        {%endif%}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header End -->
+
+        <hr style="color: var(--primary); width: 85vw; height: 2px; border-width: 0; background-color: var(--primary); margin: 0 auto;">
+
+
+        <!-- Property List Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="tab-content">
+                    <div id="tab-1" class="tab-pane fade show p-0 active">
+                        <div class="row g-2">
+                            <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <div class="property-item rounded overflow-hidden" style="height: 100%;">
+                                    <div class="position-relative overflow-hidden" style="text-align: center;">
+                                        <h3 style="margin: 0 auto;padding-top: 40px;">Amenities</h3>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        {% if amenities %}
+                                        {% if amenities|length > 0 %}
+                                            <p>{{ amenities.0 }}</p>
+                                        {% endif %}
+                                        {% if amenities|length > 1 %}
+                                            <ul>
+                                                {% for item in amenities %}
+                                                    {% if forloop.counter > 1 %}
+                                                        <li>{{ item }}</li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    {% endif %}
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                                <div class="property-item rounded overflow-hidden" style="height: 100%;">
+                                    <div class="position-relative overflow-hidden" style="text-align: center;">
+                                        <h3 style="margin: 0 auto;padding-top: 40px;">Highlights</h3>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        {% if highlights %}
+                                        {% if highlights|length > 1 %}
+                                            <ul>
+                                                {% for item in highlights %}
+                                                    {% if forloop.counter > 1 %}
+                                                        <li>{{ item }}</li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <hr style="color: var(--primary); width: 85vw; height: 2px; border-width: 0; background-color: var(--primary); margin: 0 auto; margin-top: 40px; margin-bottom: 40px;">
+
+                            <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                                <div class="property-item rounded overflow-hidden" style="height: 100%;">
+                                    <div class="position-relative overflow-hidden" style="text-align: center;">
+                                        <h3 style="margin: 0 auto;padding-top: 40px;">Location</h3>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        {% if location %}
+                                        {% if location|length > 0 %}
+                                            <p>{{ location.0 }}</p>
+                                        {% endif %}
+                                        {% if location|length > 1 %}
+                                            <ul>
+                                                {% for item in location %}
+                                                    {% if forloop.counter > 1 %}
+                                                        <li>{{ item }}</li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                                <div class="property-item rounded overflow-hidden" style="height: 100%;">
+                                    <div class="position-relative overflow-hidden" style="text-align: center;">
+                                        <h3 style="margin: 0 auto;padding-top: 40px;">Interior & Units</h3>
+                                    </div>
+                                    <div class="p-4 pb-0">
+                                        {% if units %}
+                                        {% if units|length > 0 %}
+                                            <p>{{ units.0 }}</p>
+                                        {% endif %}
+                                        {% if units|length > 1 %}
+                                            <ul>
+                                                {% for item in units %}
+                                                    {% if forloop.counter > 1 %}
+                                                        <li>{{ item }}</li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr style="color: var(--primary); width: 85vw; height: 2px; border-width: 0; background-color: var(--primary); margin: 0 auto; margin-top: 40px; margin-bottom: 40px;">
+
+                            <div class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.3s" style="margin: 0 auto;">
+                                <div class="property-item rounded overflow-hidden">
+                                    <div class="position-relative overflow-hidden" style="text-align: center;">
+                                        <h3 style="margin: 0 auto;padding-top: 40px;">Payment Plan</h3>
+                                    </div>
+                                    <div class="p-4 pb-4">
+                                        {% if payment %}
+                                        
+                                        {% if payment|length > 0 %}
+                                            <ul class="paymentul">
+                                                {% for item in payment %}
+                                                    {% if forloop.counter > 0 %}
+                                                        <li >{{ item }}</li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    {% endif %}
+                                       
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            
+                            <!-- <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
+                                <a class="btn btn-primary py-3 px-5" href="">Browse More Property</a>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Property List End -->
+
+
+        <!-- Call to Action Start -->
+        <div class="container-xxl py-5">
+            <div class="container">
+                <div class="bg-light rounded p-3">
+                    <div class="bg-white rounded p-4" style="border: 1px dashed var(--primary)">
+                        <div class="row g-5 align-items-center">
+                            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                                <img class="img-fluid rounded w-100" src="https://static.independent.co.uk/2023/07/14/13/iStock-1333035210.jpg" alt="">
+                            </div>
+                            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                                <div class="mb-4">
+                                    <h1 class="mb-3">Contact Our Agent</h1>
+                                    <p>Eirmod sed ipsum dolor sit rebum magna erat. Tempor lorem kasd vero ipsum sit sit diam justo sed vero dolor duo.</p>
+                                </div>
+                                <a href="" class="btn btn-primary py-3 px-4 me-2"><i class="fa fa-phone-alt me-2"></i>Make A Call</a>
+                                <a href="" class="btn btn-dark py-3 px-4" id="contactbutton"><i class="fa fa-calendar-alt me-2"></i>Get Appoinment</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Call to Action End -->
+        
+
+        {% include 'footer.html' %}
+
+
+    <a href="https://api.whatsapp.com/send?phone=1955081075&text=Hello" class="float" target="_blank"><i class="fab fa-whatsapp my-float"></i></a>
+
+</body>
+
+</html>

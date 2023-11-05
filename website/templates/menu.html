@@ -1,0 +1,69 @@
+{%load static%}
+
+<!-- Spinner Start -->
+<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<!-- Spinner End -->
+
+<!-- Navbar Start -->
+<div class="container-fluid nav-bar bg-transparent">
+    <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
+        <a href="" class="navbar-brand d-flex align-items-center text-center">
+            <div class="icon p-2 me-2">
+                <img class="img-fluid" src="{% static 'img/icons8-appartments-100.png' %}" alt="Icon" style="width: 30px; height: 30px;">
+            </div>
+            <h1 class="m-0 text-primary" id="main-title">My Agent</h1>
+        </a>
+        <button class="navbar-toggler collapsed d-flex d-lg-none flex-column justify-content-around" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="toggler-icon top-bar"></span>
+            <span class="toggler-icon middle-bar"></span>
+            <span class="toggler-icon bottom-bar"></span>
+          </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto">
+                {% if request.path == '/search' %}
+                <a href="/" class="nav-item nav-link">Home</a>
+                <a href="/search" class="nav-item nav-link active">Search</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
+                    <div class="dropdown-menu rounded-0 m-0">
+                        <a href="/search?type=villa" class="dropdown-item">Villa</a>
+                        <a href="/search?type=apartments" class="dropdown-item">Appartment</a>
+                        <a href="/search?type=penthouse" class="dropdown-item">Penthouse</a>
+                    </div>
+                </div>
+                {% elif request.path == '/property' %}
+                <a href="/" class="nav-item nav-link">Home</a>
+                <a href="/search" class="nav-item nav-link">Search</a>
+                <div class="nav-item dropdown active">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
+                    <div class="dropdown-menu rounded-0 m-0">
+                        <a href="/search?type=villa" class="dropdown-item">Villa</a>
+                        <a href="/search?type=apartments" class="dropdown-item">Appartment</a>
+                        <a href="/search?type=penthouse" class="dropdown-item">Penthouse</a>
+                    </div>
+                </div>
+
+                {% else %}
+                <a href="/" class="nav-item nav-link active">Home</a>
+                <a href="/search" class="nav-item nav-link">Search</a>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
+                    <div class="dropdown-menu rounded-0 m-0">
+                        <a href="/search?type=villa" class="dropdown-item">Villa</a>
+                        <a href="/search?type=apartments" class="dropdown-item">Appartment</a>
+                        <a href="/search?type=penthouse" class="dropdown-item">Penthouse</a>
+                    </div>
+                </div>
+                {% endif %}
+                <a href="" class="nav-item nav-link">Reviews</a>
+                <a href="" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="" class="btn btn-primary px-3 d-none d-lg-flex">+971 12 345 6789</a>
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
