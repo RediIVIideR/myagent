@@ -675,20 +675,8 @@ a:hover{
 .modal{
     z-index: 999999;
 }
-/* .paymentul{
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-}
 
-.paymentul li{
-    width: 50%;
-    box-sizing: border-box;
-    padding: 10px;
-    text-align: center;
+.one-filter-location, .one-filter-developer{
+    text-decoration: underline;
+    color: #666565!important;
 }
-.paymentul li:last-child {
-    width: 100%!important;
-    margin: 0 auto;
-} */
