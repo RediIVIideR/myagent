@@ -8,24 +8,6 @@
 </head>
 
 <body>
-    <!-- Google Web Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
-
-<!-- Icon Font Stylesheet -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-<!-- Libraries Stylesheet -->
-<link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
-<link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
-
-<!-- Customized Bootstrap Stylesheet -->
-<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-
-<!-- Stylesheet -->
-<link href="{% static 'css/style.min.css' %}" rel="stylesheet">
     <div class="container-xxl bg-white p-0">
 
         {% include 'menu.html' %}
@@ -47,10 +29,10 @@
                             <img class="img-fluid" src="{{slider_photo.image1}}" alt="" loading="lazy">
                         </div>
                         <div class="owl-carousel-item">
-                            <img class="img-fluid" src="{{slider_photo.image2}}" alt="">
+                            <img loading="lazy" class="img-fluid" src="{{slider_photo.image2}}" alt="">
                         </div>
                         <div class="owl-carousel-item">
-                            <img class="img-fluid" src="{{slider_photo.image3}}" alt="">
+                            <img loading="lazy" class="img-fluid" src="{{slider_photo.image3}}" alt="">
                         </div>
                     </div>
                 </div>
@@ -154,7 +136,7 @@
                         <div class="bg-white border rounded p-4">
                             <p>Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos</p>
                             <div class="d-flex align-items-center">
-                                <img class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-1.jpg' %}" style="width: 45px; height: 45px;">
+                                <img loading="lazy" class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-1.jpg' %}" style="width: 45px; height: 45px;">
                                 <div class="ps-3">
                                     <h6 class="fw-bold mb-1">Client Name</h6>
                                     <small>Tempor stet</small>
@@ -166,7 +148,7 @@
                         <div class="bg-white border rounded p-4">
                             <p>Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos</p>
                             <div class="d-flex align-items-center">
-                                <img class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-2.jpg' %}" style="width: 45px; height: 45px;">
+                                <img loading="lazy" class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-2.jpg' %}" style="width: 45px; height: 45px;">
                                 <div class="ps-3">
                                     <h6 class="fw-bold mb-1">Client Name</h6>
                                     <small>Tempor stet</small>
@@ -178,7 +160,7 @@
                         <div class="bg-white border rounded p-4">
                             <p>Tempor stet labore dolor clita stet diam amet ipsum dolor duo ipsum rebum stet dolor amet diam stet. Est stet ea lorem amet est kasd kasd erat eos</p>
                             <div class="d-flex align-items-center">
-                                <img class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-3.jpg' %}" style="width: 45px; height: 45px;">
+                                <img loading="lazy" class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-3.jpg' %}" style="width: 45px; height: 45px;">
                                 <div class="ps-3">
                                     <h6 class="fw-bold mb-1">Client Name</h6>
                                     <small>Tempor stet</small>
