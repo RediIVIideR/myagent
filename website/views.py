@@ -325,8 +325,6 @@ def search(request):
     if keyword:
         objects = objects.filter(property_name__contains=keyword)
 
-    objects = filter_objects_within_range(min_price, max_price, objects)
-
     q_objects = Q()
 
     if bedrooms:
@@ -347,6 +345,8 @@ def search(request):
 
     if q_objects:
         objects = objects.filter(q_objects)
+
+    objects = filter_objects_within_range(min_price, max_price, objects)
 
     # Set the number of items per page
     items_per_page = 6
