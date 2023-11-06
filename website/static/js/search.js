@@ -154,11 +154,11 @@ function check_search(page) {
         }
     });
 
-    min_price = document.getElementById('range-min').value;
-    max_price = document.getElementById('range-max').value;
+    minprice = document.getElementById('range-min').value;
+    maxprice = document.getElementById('range-max').value;
 
 
-    final_str = final_str+'&minprice='+min_price+'&maxprice='+max_price;
+    final_str = final_str+'&minprice='+minprice+'&maxprice='+maxprice;
 
 
     fetch('/searching'+final_str, {
