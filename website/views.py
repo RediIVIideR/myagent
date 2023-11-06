@@ -387,3 +387,10 @@ def show_property(request):
     }
     template = loader.get_template("property.html")
     return HttpResponse(template.render(context, request))
+
+
+def custom_404(request, exception):
+    print(exception)
+    context = {}
+    template = loader.get_template("404.html")
+    return HttpResponse(template.render(context, request))
