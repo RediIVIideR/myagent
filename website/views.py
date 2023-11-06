@@ -21,6 +21,32 @@ def remove_non_unique(lst):
     return unique_elements
 
 
+def convert_price_to_number(price):
+    price_str = price.replace("AED ", "", 2)
+    if "EUR" in price_str:
+        return None
+    if "YEAR" in price_str:
+        return None
+    if "K" in price_str:
+        return float(price_str.replace("K", "")) * 1000
+    elif "M" in price_str:
+        return float(price_str.replace("M", "")) * 1000000
+    else:
+        return None
+
+
+def filter_objects_within_range(min_price, max_price, objects):
+    filtered_objects = []
+    for obj in objects:
+        price_in_number = convert_price_to_number(obj.property_starting_price_aed)
+        if price_in_number == None:
+            continue
+        if min_price <= price_in_number <= max_price:
+            filtered_objects.append(obj)
+            print(1)
+    return filtered_objects
+
+
 def price_conversion(price):
     price = price.upper()
     aed_price = price
@@ -283,8 +309,8 @@ def search(request):
     keyword = request.GET.get("keyword")
     property_types = request.GET.getlist("type")
     locations = request.GET.getlist("loc")
-    min_price = request.GET.get("minprice")
-    max_price = request.GET.get("maxprice")
+    min_price = float(request.GET.get("minprice"))
+    max_price = float(request.GET.get("maxprice"))
     developers = request.GET.getlist("developer")
     bedrooms = request.GET.getlist("bed")
 
@@ -296,14 +322,10 @@ def search(request):
     )
     objects = Property.objects.all()  # Retrieve your data
 
-    print(developers_list)
-
     if keyword:
         objects = objects.filter(property_name__contains=keyword)
-    if min_price:
-        objects = objects.filter(property_starting_price_aed__gte=min_price)
-    if max_price:
-        objects = objects.filter(property_starting_price_aed__lte=max_price)
+
+    objects = filter_objects_within_range(min_price, max_price, objects)
 
     q_objects = Q()
 

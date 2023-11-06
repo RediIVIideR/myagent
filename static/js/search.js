@@ -154,6 +154,14 @@ function check_search(page) {
         }
     });
 
+    min_price = document.getElementById('range-min').value;
+    max_price = document.getElementById('range-max').value;
+
+    console.log(min_price,max_price);
+
+    final_str = final_str+'&minprice='+min_price+'&maxprice='+max_price;
+
+
     fetch('/searching'+final_str, {
         method: 'GET',
         headers: {

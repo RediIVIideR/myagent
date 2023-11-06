@@ -81,8 +81,8 @@
           </li>
         {% endif %}
 
-        {% if page_obj.number|add:'-4' > 1 %}
-            <li class="page-item"><a class="page-link" href="?page={{ page_obj.number|add:'-5' }}">&hellip;</a></li>
+        {% if page_obj.number|add:'-3' > 1 %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.number|add:'-4' }}">&hellip;</a></li>
         {% endif %}
 
         {% for i in page_obj.paginator.page_range %}
@@ -119,6 +119,7 @@
 
         {% include 'footer.html' %}
         <script src="{% static 'js/search.min.js' %}" defer></script>
+        <script src="{% static 'js/slider.min.js' %}" defer></script>
 
         <!-- Back to Top -->
         <!-- <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a> -->

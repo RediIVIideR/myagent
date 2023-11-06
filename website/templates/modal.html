@@ -84,6 +84,28 @@
                     </div>
                     {%endfor%}
                 </div>
+                <div class="col-md-11" style="margin-bottom: 15px;">
+                    <span class="fa-lg mb-3">Price Range</span>
+                    <div class="price-input">
+                        <div class="field">
+                          <span>Min AED</span>
+                          <input type="number" class="input-min" value="200000">
+                        </div>
+                        <div class="separator">-</div>
+                        <div class="field">
+                          <span>Max AED</span>
+                          <input type="number" class="input-max" value="30000000">
+                        </div>
+                      </div>
+                      <div class="slider">
+                        <div class="progress"></div>
+                      </div>
+                      <div class="range-input">
+                        <input type="range" class="range-min" id="range-min" min="200000" max="30000000" value="200000" step="100000">
+                        <input type="range" class="range-max" id="range-max" min="0" max="30000000" value="30000000" step="500000">
+                      </div>
+                    </div>
+
             </div>
         </div>
         <div class="modal-footer">

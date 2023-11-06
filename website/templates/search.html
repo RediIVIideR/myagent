@@ -43,8 +43,8 @@
   </li>
 {% endif %}
 
-{% if page_obj.number|add:'-4' > 1 %}
-    <li class="page-item"><a class="page-link" href="?page={{ page_obj.number|add:'-5' }}">&hellip;</a></li>
+{% if page_obj.number|add:'-3' > 1 %}
+    <li class="page-item"><a class="page-link" href="?page={{ page_obj.number|add:'-4' }}">&hellip;</a></li>
 {% endif %}
 
 {% for i in page_obj.paginator.page_range %}
@@ -55,7 +55,7 @@
         <span class="sr-only">(current)</span>
       </span>
     </li>
-    {% elif i > page_obj.number|add:'-5' and i < page_obj.number|add:'5' %}
+    {% elif i > page_obj.number|add:'-3' and i < page_obj.number|add:'3 ' %}
          <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
     {% endif %}
 {% endfor %}
