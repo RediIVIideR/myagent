@@ -43,7 +43,6 @@ def filter_objects_within_range(min_price, max_price, objects):
             continue
         if min_price <= price_in_number <= max_price:
             filtered_objects.append(obj)
-            print(1)
     return filtered_objects
 
 
