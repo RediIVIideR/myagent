@@ -113,6 +113,13 @@ class Property(OrderedModel):
         blank=True,
     )
 
+    property_type = models.TextField(
+        ("Property Type"),
+        default="Offplan",
+        max_length=5000,
+        blank=True,
+    )
+
     property_image1 = models.FileField(
         ("Image 1"), upload_to=get_image_path, default="", blank=True
     )
