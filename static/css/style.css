@@ -761,3 +761,16 @@ a:hover{
     -moz-appearance: none;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
   }
+
+.btn-filters{
+    border-radius: 20px;
+    text-wrap: nowrap;
+    color: var(--dark);
+    border-color: var(--dark);
+}
+.list-group-item{
+    border: 0;
+}
+/* #filterrow{
+    padding-block-end: 1.5rem;
+} */
