@@ -764,7 +764,7 @@ a:hover{
 
 .btn-filters{
     border-radius: 20px;
-    text-wrap: nowrap;
+    min-width: 130px;
     color: var(--dark);
     border-color: var(--dark);
 }
