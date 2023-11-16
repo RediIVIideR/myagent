@@ -1,6 +1,6 @@
 <!-- Modal Filters -->
-<div class="modal fade" id="FilterModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+<div class="modal fade" id="FilterModal" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog ">
     <div class="modal-content">
         <div class="modal-header">
         <h5 class="modal-title" id="staticBackdropLabel">Search Filter</h5>
@@ -20,7 +20,7 @@
                         <label class="form-check-label" for="inlineCheckbox2">Secondary</label>
                     </div>
                     
-                    </div>
+                </div>
                 <div class="col-md-6" data-mdb-filter="color" style="margin-bottom: 15px;">
                 <span class="fa-lg mb-5">Type of Property</span>
         
@@ -51,7 +51,7 @@
         
             </div>
             <div class="row justify-content-center">
-                <div class="col-md-6" style="margin-bottom: 15px;">
+                <!-- <div class="col-md-6" style="margin-bottom: 15px;">
                     <span class="fa-lg mb-5">Location</span>
                     {% for location in locations %}
                         <div class="form-check{% if forloop.first %} mt-2{% endif %}">
@@ -70,8 +70,8 @@
                         <label class="form-check-label" for="inlineCheckbox5">{{developer}}</label>
                     </div>
                     {%endfor%}
-                </div>
-                <div class="col-md-11" style="margin-bottom: 15px;">
+                </div> -->
+                <div class="col-md-11" style="">
                     <span class="fa-lg mb-3">Price Range</span>
                     <div class="price-input">
                         <div class="field">
@@ -91,7 +91,7 @@
                         <input type="range" class="range-min" id="range-min" min="200000" max="30000000" value="200000" step="100000">
                         <input type="range" class="range-max" id="range-max" min="0" max="30000000" value="30000000" step="500000">
                       </div>
-                    </div>
+                </div>
 
             </div>
         </div>
@@ -106,19 +106,35 @@
     </div>
 </div>
 
+
 <!-- Search Start -->
 <div class="container-fluid bg-primary-search mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
     <div class="container searchbar">
         <div class="row g-2">
-            <div class="col-md-10">
+            <div class="col-md-12">
                 <div class="row g-2">
                     <div class="col-md-12">
                         <input type="text" class="form-control border-0 py-3" placeholder="Search Keyword" id="search_backend">
                     </div>
                 </div>
             </div>
-            <div class="col-md-2">
-                <button class="btn btn-filter border-0 w-100 py-3" data-bs-toggle="modal" data-bs-target="#FilterModal"><i class="fas fa-filter"></i></button>
+            <div class="col-md-12">
+            <div class="row g-2">
+                <div class="col-md-12">
+                    <div style="background-color: white; border-radius: 5px; overflow-x: hidden;">
+                <ul class="list-group list-group-horizontal overflow-auto w-100">
+                    <!-- <li class="list-group-item"><button class="btn btn-filter border-0 w-100 " data-bs-toggle="modal" data-bs-target="#FilterModal"><i class="fas fa-filter"></i></button></li> -->
+                    <li class="list-group-item"><button type="button" class="btn btn-outline-primary btn-filters"><i class="fas fa-toolbox"></i>  Type</button></li>
+                    <li class="list-group-item"><button type="button" class="btn btn-outline-primary btn-filters"><i class="fas fa-home"></i>  Category</button></li>
+                    <li class="list-group-item"><button type="button" class="btn btn-outline-primary btn-filters"><i class="fas fa-dollar-sign"></i>  Price Range</button></li>
+                    <li class="list-group-item"><button type="button" class="btn btn-outline-primary btn-filters"><i class="fas fa-building"></i>  Developer</button></li>
+                    <li class="list-group-item"><button type="button" class="btn btn-outline-primary btn-filters"><i class="fas fa-map-marker-alt"></i>  Location</button></li>
+                    <li class="list-group-item"><button type="button" class="btn btn-outline-primary btn-filters"><i class="fas fa-bed"></i>  Beds</button></li>
+                </ul>
+                </div>
+                </div>
+            </div>
+                
             </div>
         </div>
     </div>
