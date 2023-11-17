@@ -4,7 +4,9 @@
 <head>
     {%load static%}
     <title>My Agent Dubai | Main Page</title>
+    <meta content="My Agent Dubai - Best Real Estate Agent to find best deals in Dubai. Finding investment opportunities in real estate across Dubai, offering a diverse range of properties, including luxurious apartments, exquisite villas, and sophisticated penthouses." name="description">
     {% include 'header.html' %}
+    
 </head>
 
 <body>
@@ -17,7 +19,7 @@
         <!-- Header Start -->
         <div class="container-fluid header bg-white p-0">
             <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
-                <div class="col-md-6 p-5 mt-lg-5">
+                <div class="col-md-6 p-5 mt-lg-5" id="header-text">
                     <h1 class="display-5 animated fadeIn mb-4">Find A <span class="text-primary-main">Perfect Place</span> To Invest In Dubai</h1>
                     <p class="animated fadeIn mb-4 pb-2">Discover ideal investment opportunities in real estate across Dubai, offering a diverse range of properties, including luxurious apartments, exquisite villas, and sophisticated penthouses.</p>
                     <a href="/search" class="btn btn-primary py-3 px-5 me-3 animated fadeIn btn-glow">Get Started</a>
@@ -73,7 +75,7 @@
                                 <div class="property-item rounded overflow-hidden" style="height: 100%;">
                                     <div class="position-relative overflow-hidden">
                                         <a href="/property?id={{property.id}}"><img loading="lazy" class="img-fluid" src="{{property.property_image1}}" alt=""></a>
-                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">{{property.property_type}}</div>
+                                        <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-2 py-1 px-3">{{property.property_type}}</div>
                                         <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">{{property.property_accommodation_type}}</div>
                                     </div>
                                     <div class="p-4 pb-0">
@@ -111,8 +113,8 @@
                                     <h1 class="mb-3">Contact Our Agent</h1>
                                     <p>Contact our real estate agents to discover the perfect investment opportunity in Dubai, offering a diverse range of luxury apartments, stunning villas, and exquisite penthouses.</p>
                                 </div>
-                                <a href="" class="btn btn-primary py-3 px-4 me-2"><i class="fa fa-phone-alt me-2"></i>Make A Call</a>
-                                <a href="" class="btn btn-dark py-3 px-4" id="contactbutton"><i class="fa fa-calendar-alt me-2"></i>Get Appoinment</a>
+                                <a href="tel:+971 50 477 4714" class="btn btn-primary py-3 px-4 me-2"><i class="fa fa-phone-alt me-2"></i>Make A Call</a>
+                                <a href="https://api.whatsapp.com/send?phone=+971504774714&text=Hello!%20I%27m%20interested%20in%20real%20estate. Could you help me?" class="btn btn-dark py-3 px-4" id="contactbutton"><i class="fa fa-calendar-alt me-2"></i>Get Appoinment</a>
                             </div>
                         </div>
                     </div>
@@ -175,7 +177,7 @@
         {% include 'footer.html' %}
 
 
-    <a href="https://api.whatsapp.com/send?phone=1955081075&text=Hello" class="float" target="_blank"><i class="fab fa-whatsapp my-float"></i></a>
+    <a href="https://api.whatsapp.com/send?phone=+971504774714&text=Hello!%20I%27m%20interested%20in%20real%20estate. Could you help me?" class="float" target="_blank"><i class="fab fa-whatsapp my-float"></i></a>
 
 </body>
 

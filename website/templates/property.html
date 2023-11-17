@@ -3,7 +3,8 @@
 
 <head>
     {%load static%}
-    <title>My Agent Dubai | {{property.name}}</title>
+    <title>My Agent Dubai | {{property.property_name}}</title>
+    <meta content="My Agent Dubai {{property.property_description}}" name="description">
     {% include 'header.html' %}
 </head>
 
@@ -227,8 +228,8 @@
                                     <h1 class="mb-3">Contact Our Agent</h1>
                                     <p>Eirmod sed ipsum dolor sit rebum magna erat. Tempor lorem kasd vero ipsum sit sit diam justo sed vero dolor duo.</p>
                                 </div>
-                                <a href="" class="btn btn-primary py-3 px-4 me-2"><i class="fa fa-phone-alt me-2"></i>Make A Call</a>
-                                <a href="" class="btn btn-dark py-3 px-4" id="contactbutton"><i class="fa fa-calendar-alt me-2"></i>Get Appoinment</a>
+                                <a href="tel:+971 50 477 4714" class="btn btn-primary py-3 px-4 me-2"><i class="fa fa-phone-alt me-2"></i>Make A Call</a>
+                                <a href="https://api.whatsapp.com/send?phone=+971504774714&text=Hello! I'm interested in {{property.property_name}}. Could you help me?" class="btn btn-dark py-3 px-4" id="contactbutton"><i class="fa fa-calendar-alt me-2"></i>Get Appoinment</a>
                             </div>
                         </div>
                     </div>
@@ -241,7 +242,7 @@
         {% include 'footer.html' %}
 
 
-    <a href="https://api.whatsapp.com/send?phone=1955081075&text=Hello" class="float" target="_blank"><i class="fab fa-whatsapp my-float"></i></a>
+    <a href="https://api.whatsapp.com/send?phone=+971504774714&text=Hello! I'm interested in {{property.property_name}}. Could you help me?" class="float" target="_blank"><i class="fab fa-whatsapp my-float"></i></a>
 
 </body>
 
