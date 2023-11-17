@@ -98,27 +98,27 @@
                 <div class="col-md-12" data-mdb-filter="color">
             
                     <div class="form-check mt-3">
-                        <input class="form-check-input bedding" type="checkbox" id="inlineCheckbox1" value="studio" autocompleted="">
-                        <label class="form-check-label" for="inlineCheckbox1">Studio</label>
+                        <input type="checkbox" class="btn-check bedding" id="btn-check1" autocomplete="off" value="studio">
+                        <label class="btn btn-outline-primary btn-filters" for="btn-check1">Studio</label>
                     </div>
             
                     <div class="form-check">
-                        <input class="form-check-input bedding" type="checkbox" id="inlineCheckbox2" value="1" autocompleted="">
-                        <label class="form-check-label" for="inlineCheckbox2">1</label>
+                        <input type="checkbox" class="btn-check bedding" id="btn-check2" autocomplete="off" value="1">
+                        <label class="btn btn-outline-primary btn-filters" for="btn-check2">1 Bedroom</label>
                     </div>
             
                     <div class="form-check">
-                        <input class="form-check-input bedding" type="checkbox" id="inlineCheckbox3" value="2" autocompleted="">
-                        <label class="form-check-label" for="inlineCheckbox3">2</label>
+                        <input type="checkbox" class="btn-check bedding" id="btn-check3" autocomplete="off" value="2">
+                        <label class="btn btn-outline-primary btn-filters" for="btn-check3">2 Bedrooms</label>
                     </div>
             
                     <div class="form-check">
-                        <input class="form-check-input bedding" type="checkbox" id="inlineCheckbox4" value="3">
-                        <label class="form-check-label" for="inlineCheckbox4">3</label>
+                        <input type="checkbox" class="btn-check bedding" id="btn-check4" autocomplete="off" value="3">
+                        <label class="btn btn-outline-primary btn-filters" for="btn-check4">3 Bedrooms</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input bedding" type="checkbox" id="inlineCheckbox4" value="4">
-                        <label class="form-check-label" for="inlineCheckbox4">4</label>
+                        <input type="checkbox" class="btn-check bedding" id="btn-check5" autocomplete="off" value="4">
+                        <label class="btn btn-outline-primary btn-filters" for="btn-check5">4 Bedrooms</label>
                     </div>
                     </div>
             </div>
@@ -144,13 +144,24 @@
         </div>
         <div class="modal-body">
             
-            <div class="row justify-content-center" style="margin-bottom: 30px;">
-                <div class="col-md-12" style="margin-bottom: 15px;">
+            <div class="row justify-content-center">
+                <div class="col-md-12 filter_res">
+                    <div class="search_block">
+						<form class="search_outer">
+							<button class="search_btn">
+								<i class="fas fa-search search_icon" ></i>
+							</button>
+							<input type="text" placeholder="Search for location..." class="search_input" id="search_loc">
+						</form>
+					</div>
+                    <!-- <input type="text" class="searchbar_filter" id="search_loc"> -->
                     <!-- <span class="fa-lg mb-5">Location</span> -->
                     {% for location in locations %}
-                        <div class="form-check{% if forloop.first %} mt-2{% endif %}">
-                            <input class="form-check-input location" type="checkbox" id="inlineCheckbox{{ forloop.counter }}" value="{{ location }}">
-                            <label class="form-check-label" for="inlineCheckbox{{ forloop.counter }}">{{ location }}</label>
+                        <div class="{% if forloop.first %} mt-2{% endif %}" style="text-align: center;">
+                            <input type="checkbox" class="btn-check location" id="btn-check-loc{{ forloop.counter }}" autocomplete="off" value="{{ location }}">
+                            <label class="btn btn-outline-primary btn-filters-inner search_loc_item" for="btn-check-loc{{ forloop.counter }}">{{ location }}</label>
+                            <!-- <input class="form-check-input location" type="checkbox" id="inlineCheckbox{{ forloop.counter }}" value="{{ location }}">
+                            <label class="form-check-label" for="inlineCheckbox{{ forloop.counter }}">{{ location }}</label> -->
                         </div>
                     {% endfor %}
             
@@ -271,7 +282,7 @@
             <div class="col-md-12">
             <div class="row g-2">
                 <div class="col-md-12">
-                    <div style="border-radius: 5px; overflow-x: hidden;">
+                    <div style="border-radius: 5px; overflow-x: hidden; background-color: white;">
                 <ul class="list-group list-group-horizontal overflow-auto w-100">
                     <!-- <li class="list-group-item"><button class="btn btn-filter border-0 w-100 " data-bs-toggle="modal" data-bs-target="#FilterModal"><i class="fas fa-filter"></i></button></li> -->
                     <li class="list-group-item" style="padding-right: 5px; " ><p id="indicate-scroll" style="font-size: 16px; margin: 0;"><i class="fas fa-chevron-left" style="margin-top: 10px;"></i></p></li>

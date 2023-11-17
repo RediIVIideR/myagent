@@ -9,6 +9,17 @@ function uncheck_all() {
             }
 };
 
+function uncheck(classname) {
+
+    var checkboxes = document.querySelectorAll('.'+classname);
+
+            // Find the corresponding checkbox based on the value
+            for (var i = 0; i < checkboxes.length; i++) {
+                var checkbox = checkboxes[i];
+                checkbox.checked = false;
+            }
+};
+
 function query(array, type, btn_class){
     final_str = '';
     any_checked = false;
@@ -186,24 +197,42 @@ document.getElementById('search_backend').oninput = function() {
     check_search(variableToPass);
 };
 document.addEventListener('DOMContentLoaded', function() {
+    var clearButtons = document.getElementsByClassName('clear');
     var applyButtons = document.getElementsByClassName('apply');
-    console.log(applyButtons)
+    console.log(applyButtons);
 
-    // Convert NodeList to an array
     var applyButtonsArray = Array.from(applyButtons);
-
-    // Alternatively, you can use the spread operator
-    // var applyButtonsArray = [...applyButtons];
-
+    var clearButtonsArray = Array.from(clearButtons);
     applyButtonsArray.forEach(function(applyButton) {
         applyButton.addEventListener('click', function() {
-            var variableToPass = ""; // Replace this with your variable
-            check_search(variableToPass);
+            check_search("");
         });
     });
+    clearButtonsArray.forEach(function(clearButton) {
+        clearButton.addEventListener('click', function() {
+            uncheck(clearButton.id);
+            check_search('');
+        });
+    });
+
+    //get input
+let input = document.getElementById("search_loc");
+//get list of value
+let list = document.querySelectorAll(".search_loc_item");
+//function search on the list.
+function search (){
+  for(let i = 0; i < list.length; i += 1){
+   if(list[i].innerText.toLowerCase().includes(input.value.toLowerCase())){
+     list[i].style.display = "block";
+   }else{
+     list[i].style.display = "none";
+   }
+  }
+}
+
+//to the change run search.
+input.addEventListener('input', search);
 });
 
-document.getElementById('clear').addEventListener('click', function() {
-    uncheck_all();
-    check_search('')
-})
+
+
