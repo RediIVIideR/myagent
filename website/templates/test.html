@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #swipe-container {
+      overflow-x: hidden;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    #swipe-container ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      transition: transform 0.3s ease;
+    }
+
+    #swipe-container li {
+      flex: 0 0 auto;
+      box-sizing: border-box;
+      width: 100px; /* Adjust the width of each li element */
+      padding: 10px;
+      margin-right: 5px;
+      border: 1px solid #ccc;
+    }
+  </style>
+  <title>Swipe Functionality</title>
+</head>
+<body>
+
+<div id="swipe-container">
+  <ul id="swipe-list">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+    <!-- Add more items as needed -->
+  </ul>
+</div>
+
+<script>
+  var swipeContainer = document.getElementById('swipe-container');
+  var swipeList = document.getElementById('swipe-list');
+  var startX;
+  var currentX = 0;
+
+  swipeContainer.addEventListener('touchstart', handleTouchStart, false);
+  swipeContainer.addEventListener('touchmove', handleTouchMove, false);
+
+  function handleTouchStart(event) {
+    startX = event.touches[0].clientX;
+  }
+
+  function handleTouchMove(event) {
+    if (!startX) return;
+
+    var x = event.touches[0].clientX;
+    var deltaX = x - startX;
+
+    currentX = currentX - deltaX;
+
+    // Ensure the list doesn't go beyond the left or right edges
+    currentX = Math.max(currentX, -(swipeList.offsetWidth - swipeContainer.offsetWidth));
+    currentX = Math.min(currentX, 0);
+
+    swipeList.style.transform = 'translateX(' + currentX + 'px)';
+
+    startX = x;
+    event.preventDefault();
+  }
+</script>
+
+</body>
+</html>
