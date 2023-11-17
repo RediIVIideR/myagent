@@ -788,8 +788,9 @@ a:hover{
     background-color: #fff;
 }
 .btn-filters-inner:hover{
-    color: white;
-    background-color: var(--btnglow);
+    color: var(--dark);
+    border-color: var(--dark);
+    background-color: #fff;
 }
 .btn-filters-inner:active{
     color: white;
