@@ -9,6 +9,26 @@ function uncheck_all() {
             }
 };
 
+function query(array, type, btn_class){
+    final_str = '';
+    any_checked = false;
+    array.forEach(element => {
+        if (element.checked) {
+            final_str = final_str + type + element.value;
+            any_checked = true
+        }
+    });
+    if (any_checked) {
+        // Add an additional class to the button
+        document.querySelector('button.'+btn_class).classList.add('btn-filters-active');
+    }
+    else{
+        document.querySelector('button.'+btn_class).classList.remove('btn-filters-active');
+    }
+    return final_str
+
+};
+
 document.addEventListener('DOMContentLoaded', function() {
     // Function to parse URL parameters
     function getUrlParameter(name) {
@@ -129,30 +149,15 @@ function check_search(page) {
     accommodation = Array.from(accommodation);
     locations = Array.from(locations);
     developers = Array.from(developers);
+    bedding = Array.from(bedding);
 
     // Loop through checkboxes and push their values to the 'final_str' variable if checked
-    accommodation.forEach(checkbox => {
-        if (checkbox.checked) {
-            final_str = final_str + '&type=' + checkbox.value;
-        }
-    });
 
-    locations.forEach(checkbox => {
-        if (checkbox.checked) {
-            final_str = final_str + '&loc=' + checkbox.value;
-        }
-    });
-
-    developers.forEach(checkbox => {
-        if (checkbox.checked) {
-            final_str = final_str + '&developer=' + checkbox.value;
-        }
-    });
-    bedding.forEach(checkbox => {
-        if (checkbox.checked) {
-            final_str = final_str + '&bed=' + checkbox.value;
-        }
-    });
+    final_str = final_str + query(accommodation,'&type=','accommodation');
+    final_str = final_str + query(locations,'&loc=','location');
+    final_str = final_str + query(developers,'&developer=','developer');
+    final_str = final_str + query(bedding,'&bed=','bedding');
+    console.log(final_str)
 
     minprice = document.getElementById('range-min').value;
     maxprice = document.getElementById('range-max').value;
@@ -180,12 +185,24 @@ document.getElementById('search_backend').oninput = function() {
     // Call the check_search function and pass the variable as an argument
     check_search(variableToPass);
 };
-document.getElementById('apply').addEventListener('click', function() {
-    var variableToPass = ""; // Replace this with your variable
+document.addEventListener('DOMContentLoaded', function() {
+    var applyButtons = document.getElementsByClassName('apply');
+    console.log(applyButtons)
 
-    // Call the check_search function and pass the variable as an argument
-    check_search(variableToPass);
-})
+    // Convert NodeList to an array
+    var applyButtonsArray = Array.from(applyButtons);
+
+    // Alternatively, you can use the spread operator
+    // var applyButtonsArray = [...applyButtons];
+
+    applyButtonsArray.forEach(function(applyButton) {
+        applyButton.addEventListener('click', function() {
+            var variableToPass = ""; // Replace this with your variable
+            check_search(variableToPass);
+        });
+    });
+});
+
 document.getElementById('clear').addEventListener('click', function() {
     uncheck_all();
     check_search('')
