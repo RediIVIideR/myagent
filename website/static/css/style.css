@@ -905,3 +905,12 @@ transform: translateX(5px); /* Adjust the distance to scroll */
     max-width: 500px;
     margin: 0 auto;
 }
+
+#reviews{
+    scroll-margin-top: 300px;
+    scroll-snap-margin-top:300px;
+}
+#contact{
+    scroll-margin-top: 300px;
+    scroll-snap-margin-top:300px;
+}
