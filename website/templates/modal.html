@@ -1,23 +1,22 @@
-<!-- Modal Filters -->
-<div class="modal fade" id="FilterModal" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<!-- Status Filter -->
+<div class="modal fade" id="StatusFilterModal" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog ">
     <div class="modal-content">
         <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Search Filter</h5>
+        <h5 class="modal-title" id="staticBackdropLabel">Type</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <div class="row justify-content-center" id="checkbox-example-filters" data-mdb-items=".checkbox-example-item" data-mdb-auto-filter="true">
-                <div class="col-md-6" data-mdb-filter="color" style="margin-bottom: 15px;">
-                    <span class="fa-lg mb-5" >Type</span>
-            
-                    <div class="form-check mt-3 ">
-                        <input class="form-check-input bedding" type="checkbox" id="inlineCheckbox1" value="offplan" autocompleted="">
-                        <label class="form-check-label" for="inlineCheckbox1">Offplan</label>
+            <div class="row justify-content-center">
+                <div class="col-md-12 filter_res">
+
+                    <div class="mt-3">
+                        <input type="checkbox" class="btn-check status" id="btn-check-status-1" autocomplete="off" value="offplan">
+                        <label class="btn btn-outline-primary btn-filters-inner" for="btn-check-status-1">Offplan</label>
                     </div>
-                    <div class="form-check ">
-                        <input class="form-check-input bedding" type="checkbox" id="inlineCheckbox2" value="secondary" autocompleted="">
-                        <label class="form-check-label" for="inlineCheckbox2">Secondary</label>
+                    <div>
+                        <input type="checkbox" class="btn-check status" id="btn-check-status-2" autocomplete="off" value="ready">
+                        <label class="btn btn-outline-primary btn-filters-inner" for="btn-check-status-2">Ready</label>
                     </div>
                     
                 </div>
@@ -26,8 +25,8 @@
         <div class="modal-footer">
         <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
             <div style="width: 80%; margin: 0 auto; text-align: center; display: inline-block;">
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="width: 70%; display: inline;"  id="apply">Apply Filters</button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="width: 15%;background-color: red; display: inline;" id="clear"><i class="fas fa-trash"></i></button>
+                <button type="button" class="btn btn-primary apply" data-bs-dismiss="modal" style="width: 70%; display: inline;"  id="status">Apply Filters</button>
+                <button type="button" class="btn btn-primary clear" data-bs-dismiss="modal" style="width: 15%;background-color: red; display: inline;" id="status"><i class="fas fa-trash"></i></button>
             </div>    
         </div>
     </div>
@@ -45,30 +44,27 @@
         <div class="modal-body">
             
             <div class="row justify-content-center">
-                <div class="col-md-12" data-mdb-filter="color">
-            
-                    <div class="form-check mt-3">
-                        <input class="form-check-input accommodation" type="checkbox" id="inlineCheckbox1" value="apartments" autocompleted="">
-                        <label class="form-check-label" for="inlineCheckbox1">Apartments</label>
+                <div class="col-md-12 filter_res">
+                    
+                    <div class="mt-3">
+                        <input type="checkbox" class="btn-check accommodation" id="btn-check-1" autocomplete="off" value="apartments">
+                        <label class="btn btn-outline-primary btn-filters-inner" for="btn-check-1">Apartments</label>
                     </div>
-            
-                    <div class="form-check">
-                        <input class="form-check-input accommodation" type="checkbox" id="inlineCheckbox2" value="villas" autocompleted="">
-                        <label class="form-check-label" for="inlineCheckbox2">Villas</label>
+                    <div>
+                        <input type="checkbox" class="btn-check accommodation" id="btn-check-2" autocomplete="off" value="villas">
+                        <label class="btn btn-outline-primary btn-filters-inner" for="btn-check-2">Villas</label>
                     </div>
-            
-                    <div class="form-check">
-                        <input class="form-check-input accommodation" type="checkbox" id="inlineCheckbox3" value="penthouses" autocompleted="">
-                        <label class="form-check-label" for="inlineCheckbox3">Penthouses</label>
+                    <div>
+                        <input type="checkbox" class="btn-check accommodation" id="btn-check-3" autocomplete="off" value="penthouses">
+                        <label class="btn btn-outline-primary btn-filters-inner" for="btn-check-3">Penthouses</label>
                     </div>
-            
-                    <div class="form-check">
-                        <input class="form-check-input accommodation" type="checkbox" id="inlineCheckbox4" value="townhouses">
-                        <label class="form-check-label" for="inlineCheckbox4">Townhouses</label>
+                    <div>
+                        <input type="checkbox" class="btn-check accommodation" id="btn-check-4" autocomplete="off" value="townhouses">
+                        <label class="btn btn-outline-primary btn-filters-inner" for="btn-check-4">Townhouses</label>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input accommodation" type="checkbox" id="inlineCheckbox4" value="duplex">
-                        <label class="form-check-label" for="inlineCheckbox4">Duplex</label>
+                    <div>
+                        <input type="checkbox" class="btn-check accommodation" id="btn-check-5" autocomplete="off" value="duplex">
+                        <label class="btn btn-outline-primary btn-filters-inner" for="btn-check-5">Duplex</label>
                     </div>
                     </div>
             </div>
@@ -77,7 +73,7 @@
 
             <div style="width: 80%; margin: 0 auto; text-align: center; display: inline-block;">
                 <button type="button" class="btn btn-primary apply" data-bs-dismiss="modal" style="width: 70%; display: inline;">Apply</button>
-                <button type="button" class="btn btn-primary clear" data-bs-dismiss="modal" style="width: 15%;background-color: red; display: inline;" id="category"><i class="fas fa-trash"></i></button>
+                <button type="button" class="btn btn-primary clear" data-bs-dismiss="modal" style="width: 15%;background-color: red; display: inline;" id="accommodation"><i class="fas fa-trash"></i></button>
             </div>    
         </div>
     </div>
@@ -95,30 +91,30 @@
         <div class="modal-body">
             
             <div class="row justify-content-center">
-                <div class="col-md-12" data-mdb-filter="color">
+                <div class="col-md-12 filter_res">
             
-                    <div class="form-check mt-3">
+                    <div class=" mt-3">
                         <input type="checkbox" class="btn-check bedding" id="btn-check1" autocomplete="off" value="studio">
-                        <label class="btn btn-outline-primary btn-filters" for="btn-check1">Studio</label>
+                        <label class="btn btn-outline-primary btn-filters-inner" for="btn-check1">Studio</label>
                     </div>
             
-                    <div class="form-check">
+                    <div class="">
                         <input type="checkbox" class="btn-check bedding" id="btn-check2" autocomplete="off" value="1">
-                        <label class="btn btn-outline-primary btn-filters" for="btn-check2">1 Bedroom</label>
+                        <label class="btn btn-outline-primary btn-filters-inner" for="btn-check2">1 Bedroom</label>
                     </div>
             
-                    <div class="form-check">
+                    <div class="">
                         <input type="checkbox" class="btn-check bedding" id="btn-check3" autocomplete="off" value="2">
-                        <label class="btn btn-outline-primary btn-filters" for="btn-check3">2 Bedrooms</label>
+                        <label class="btn btn-outline-primary btn-filters-inner" for="btn-check3">2 Bedrooms</label>
                     </div>
             
-                    <div class="form-check">
+                    <div class="">
                         <input type="checkbox" class="btn-check bedding" id="btn-check4" autocomplete="off" value="3">
-                        <label class="btn btn-outline-primary btn-filters" for="btn-check4">3 Bedrooms</label>
+                        <label class="btn btn-outline-primary btn-filters-inner" for="btn-check4">3 Bedrooms</label>
                     </div>
-                    <div class="form-check">
+                    <div class="">
                         <input type="checkbox" class="btn-check bedding" id="btn-check5" autocomplete="off" value="4">
-                        <label class="btn btn-outline-primary btn-filters" for="btn-check5">4 Bedrooms</label>
+                        <label class="btn btn-outline-primary btn-filters-inner" for="btn-check5">4 Bedrooms</label>
                     </div>
                     </div>
             </div>
@@ -154,8 +150,6 @@
 							<input type="text" placeholder="Search for location..." class="search_input" id="search_loc">
 						</form>
 					</div>
-                    <!-- <input type="text" class="searchbar_filter" id="search_loc"> -->
-                    <!-- <span class="fa-lg mb-5">Location</span> -->
                     {% for location in locations %}
                         <div class="{% if forloop.first %} mt-2{% endif %}" style="text-align: center;">
                             <input type="checkbox" class="btn-check location" id="btn-check-loc{{ forloop.counter }}" autocomplete="off" value="{{ location }}">
@@ -166,20 +160,9 @@
                     {% endfor %}
             
                     </div>
-        
-                <!-- <div class="col-md-6" style="margin-bottom: 15px;">
-                <span class="fa-lg mb-3">Developers</span>
-                    {%for developer in developers%}
-                    <div class="form-check{% if forloop.first %} mt-2{% endif %}">
-                        <input class="form-check-input developer" type="checkbox" id="inlineCheckbox5" value="{{developer}}">
-                        <label class="form-check-label" for="inlineCheckbox5">{{developer}}</label>
-                    </div>
-                    {%endfor%}
-                </div> -->
             </div>
         </div>
         <div class="modal-footer">
-
             <div style="width: 80%; margin: 0 auto; text-align: center; display: inline-block;">
                 <button type="button" class="btn btn-primary apply" data-bs-dismiss="modal" style="width: 70%; display: inline;">Apply</button>
                 <button type="button" class="btn btn-primary clear" data-bs-dismiss="modal" style="width: 15%;background-color: red; display: inline;" id="location"><i class="fas fa-trash"></i></button>
@@ -201,11 +184,19 @@
         <div class="modal-body">
             
             <div class="row justify-content-center" style="margin-bottom: 30px;">
-                <div class="col-md-6" style="margin-bottom: 15px;">
+                <div class="col-md-12 filter_res">
+                    <div class="search_block">
+						<form class="search_outer">
+							<button class="search_btn">
+								<i class="fas fa-search search_icon" ></i>
+							</button>
+							<input type="text" placeholder="Search for developers..." class="search_input" id="search_dev">
+						</form>
+					</div>
                     {%for developer in developers%}
-                    <div class="form-check{% if forloop.first %} mt-2{% endif %}">
-                        <input class="form-check-input developer" type="checkbox" id="inlineCheckbox5" value="{{developer}}">
-                        <label class="form-check-label" for="inlineCheckbox5">{{developer}}</label>
+                    <div class="{% if forloop.first %} mt-2{% endif %}">
+                        <input type="checkbox" class="btn-check developer" id="btn-check-dev{{ forloop.counter }}" autocomplete="off" value="{{ developer }}">
+                        <label class="btn btn-outline-primary btn-filters-inner search_dev_item" for="btn-check-dev{{ forloop.counter }}">{{ developer }}</label>
                     </div>
                     {%endfor%}
                 </div>
@@ -233,8 +224,7 @@
         <div class="modal-body">
             
             <div class="row justify-content-center" style="margin-bottom: 30px;">
-                <div class="col-md-11">
-                    <span class="fa-lg mb-3"></span>
+                <div class="col-md-11" id="price-filter">
                     <div class="price-input">
                         <div class="field">
                           <span>Min AED</span>
@@ -260,7 +250,7 @@
         <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
             <div style="width: 80%; margin: 0 auto; text-align: center; display: inline-block;">
                 <button type="button" class="btn btn-primary apply" data-bs-dismiss="modal" style="width: 70%; display: inline;" >Apply</button>
-                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="width: 15%;background-color: red; display: inline;" id="clear"><i class="fas fa-trash"></i></button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="width: 15%;background-color: red; display: inline;" id="clear-price"><i class="fas fa-trash"></i></button>
             </div>    
         </div>
     </div>
@@ -281,17 +271,18 @@
             </div>
             <div class="col-md-12">
             <div class="row g-2">
-                <div class="col-md-12">
+                <div class="col-md-12" >
                     <div style="border-radius: 5px; overflow-x: hidden; background-color: white;">
-                <ul class="list-group list-group-horizontal overflow-auto w-100">
-                    <!-- <li class="list-group-item"><button class="btn btn-filter border-0 w-100 " data-bs-toggle="modal" data-bs-target="#FilterModal"><i class="fas fa-filter"></i></button></li> -->
-                    <li class="list-group-item" style="padding-right: 5px; " ><p id="indicate-scroll" style="font-size: 16px; margin: 0;"><i class="fas fa-chevron-left" style="margin-top: 10px;"></i></p></li>
-                    <li class="list-group-item"><button type="button" class="btn btn-outline-primary btn-filters type" data-bs-toggle="modal" data-bs-target="#TypeFilterModal"><i class="fas fa-toolbox"></i>  Type</button></li>
+                <ul class="list-group list-group-horizontal overflow-auto w-100" id="filter_menu">
+                    <li class="list-group-item" style="padding-right: 5px; " ><p class="indicate-scroll" style="font-size: 16px; margin: 0;"><i class="fas fa-chevron-left" style="margin-top: 10px;"></i></p></li>
+                    <li class="list-group-item"><button type="button" class="btn btn-outline-primary btn-filters status" data-bs-toggle="modal" data-bs-target="#StatusFilterModal"><i class="fas fa-toolbox"></i>  Type</button></li>
                     <li class="list-group-item"><button type="button" class="btn btn-outline-primary btn-filters accommodation"  data-bs-toggle="modal" data-bs-target="#CategoryFilterModal"><i class="fas fa-home"></i>  Category</button></li>
                     <li class="list-group-item"><button type="button" class="btn btn-outline-primary btn-filters price" data-bs-toggle="modal" data-bs-target="#PriceFilterModal"><i class="fas fa-dollar-sign"></i>  Price Range</button></li>
                     <li class="list-group-item"><button type="button" class="btn btn-outline-primary btn-filters developer"  data-bs-toggle="modal" data-bs-target="#DeveloperFilterModal"><i class="fas fa-building"></i>  Developer</button></li>
                     <li class="list-group-item"><button type="button" class="btn btn-outline-primary btn-filters location" data-bs-toggle="modal" data-bs-target="#LocationFilterModal" style="font-size: 16px;"><i class="fas fa-map-marker-alt"></i>  Location</button></li>
                     <li class="list-group-item"><button type="button" class="btn btn-outline-primary btn-filters bedding"  data-bs-toggle="modal" data-bs-target="#BeddingFilterModal"><i class="fas fa-bed"></i>  Beds</button></li>
+                    <li class="list-group-item"><button type="button" class="btn btn-outline-primary btn-filters" id="clear-all"><i class="fas fa-times"></i>  Clear All</button></li>
+                    <li class="list-group-item" style="padding-right: 5px; " ><p class="indicate-scroll" style="font-size: 16px; margin: 0;"><i class="fas fa-chevron-right" style="margin-top: 10px; margin-right: 10px; margin-left: -5px;"></i></p></li>
                 </ul>
                 </div>
                 </div>

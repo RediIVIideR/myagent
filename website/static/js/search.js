@@ -151,12 +151,14 @@ function check_search(page) {
 
     var keyword = document.getElementById('search_backend').value;
     final_str = final_str+'&keyword='+keyword;
+    var status = document.querySelectorAll('.status');
     var accommodation = document.querySelectorAll('.accommodation');
     var locations = document.querySelectorAll('.location');
     var developers = document.querySelectorAll('.developer');
     var bedding = document.querySelectorAll('.bedding');
 
     // Convert HTMLCollection to arrays using Array.from()
+    status = Array.from(status);
     accommodation = Array.from(accommodation);
     locations = Array.from(locations);
     developers = Array.from(developers);
@@ -168,14 +170,21 @@ function check_search(page) {
     final_str = final_str + query(locations,'&loc=','location');
     final_str = final_str + query(developers,'&developer=','developer');
     final_str = final_str + query(bedding,'&bed=','bedding');
-    console.log(final_str)
+    final_str = final_str + query(status,'&status=','status');
 
     minprice = document.getElementById('range-min').value;
     maxprice = document.getElementById('range-max').value;
+    priceButton = document.getElementsByClassName('price')[0];
+
+    if (minprice !== '200000' || maxprice !== '30000000') {
+        priceButton.classList.add('btn-filters-active');
+    } else {
+        priceButton.classList.remove('btn-filters-active');
+    }
 
 
     final_str = final_str+'&minprice='+minprice+'&maxprice='+maxprice;
-
+    console.log(final_str);
 
     fetch('/searching'+final_str, {
         method: 'GET',
@@ -185,6 +194,7 @@ function check_search(page) {
     })
     .then(response => response.text())
     .then(data => {
+        console.log(data);
         document.getElementById('res').innerHTML = data;
  
     });
@@ -192,10 +202,9 @@ function check_search(page) {
 
 document.getElementById('search_backend').oninput = function() {
     var variableToPass = ""; // Replace this with your variable
-
-    // Call the check_search function and pass the variable as an argument
     check_search(variableToPass);
 };
+
 document.addEventListener('DOMContentLoaded', function() {
     var clearButtons = document.getElementsByClassName('clear');
     var applyButtons = document.getElementsByClassName('apply');
@@ -215,23 +224,71 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    //get input
-let input = document.getElementById("search_loc");
-//get list of value
-let list = document.querySelectorAll(".search_loc_item");
-//function search on the list.
-function search (){
-  for(let i = 0; i < list.length; i += 1){
-   if(list[i].innerText.toLowerCase().includes(input.value.toLowerCase())){
-     list[i].style.display = "block";
-   }else{
-     list[i].style.display = "none";
-   }
-  }
-}
+    if (window.innerWidth > 1200) {
+        document.getElementById('filter_menu').classList.add('justify-content-center');
+        document.getElementsByClassName('indicate-scroll')[0].style = 'font-size:0px';
+        document.getElementsByClassName('indicate-scroll')[1].style = 'font-size:0px';
+    }
+    else{
+        document.getElementById('filter_menu').classList.remove('justify-content-center')
+    };
 
-//to the change run search.
-input.addEventListener('input', search);
+
+
+
+    let input_loc = document.getElementById("search_loc");
+    let list_loc = document.querySelectorAll(".search_loc_item");
+
+    let input_dev = document.getElementById("search_dev");
+    let list_dev = document.querySelectorAll(".search_dev_item");
+
+    function search (input, list){
+    for(let i = 0; i < list.length; i += 1){
+    if(list[i].innerText.toLowerCase().includes(input.value.toLowerCase())){
+        list[i].style.display = "block";
+    }else{
+        list[i].style.display = "none";
+    }
+    }
+    }
+
+    input_dev.addEventListener('input', function(event) {
+        search(this, list_dev); 
+    });
+
+    input_loc.addEventListener('input', function(event) {
+        search(this, list_loc); 
+    });
+
+    document.getElementById('clear-price').addEventListener('click',function () {
+        document.getElementById('price-filter').innerHTML = `<div class="price-input">
+        <div class="field">
+          <span>Min AED</span>
+          <input type="number" class="input-min" value="200000">
+        </div>
+        <div class="separator">-</div>
+        <div class="field">
+          <span>Max AED</span>
+          <input type="number" class="input-max" value="30000000">
+        </div>
+      </div>
+      <div class="slider">
+        <div class="progress"></div>
+      </div>
+      <div class="range-input">
+        <input type="range" class="range-min" id="range-min" min="200000" max="30000000" value="200000" step="100000">
+        <input type="range" class="range-max" id="range-max" min="0" max="30000000" value="30000000" step="500000">
+      </div>`;
+
+      check_search('')
+        
+    });
+
+    document.getElementById('clear-all').onclick = function(){
+        uncheck_all();
+        document.getElementById('clear-price').click();
+        check_search('');
+    }
 });
 
 

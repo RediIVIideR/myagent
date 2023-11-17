@@ -1,3 +1,4 @@
+{% if page_obj %}
 <!-- Property List Start -->
 <div class="container-xxl py-5" id="property_listings">
     <div class="container">
@@ -76,3 +77,9 @@
 </ul>
 </nav>
 <!--end of Pagination-->
+{% else %}
+<div class="row" style="text-align: center;">
+    <h1 style="margin: 0 auto; margin-bottom: 30px;">Not found</h1>
+    <h3 style="margin: 0 auto;">Try applying other filters</h3>
+</div>
+{% endif %}

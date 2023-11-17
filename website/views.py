@@ -285,7 +285,7 @@ def search_property(request):
 
     if q_objects:
         objects = objects.filter(q_objects)
-
+    print(objects)
     # Set the number of items per page
     items_per_page = 6
     paginator = Paginator(objects, items_per_page)
@@ -307,6 +307,7 @@ def search_property(request):
 def search(request):
     keyword = request.GET.get("keyword")
     property_types = request.GET.getlist("type")
+    property_status = request.GET.getlist("status")
     locations = request.GET.getlist("loc")
     min_price = float(request.GET.get("minprice"))
     max_price = float(request.GET.get("maxprice"))
@@ -325,6 +326,10 @@ def search(request):
         objects = objects.filter(property_name__contains=keyword)
 
     q_objects = Q()
+
+    if property_status:
+        for status in property_status:
+            q_objects |= Q(property_type__contains=status)
 
     if bedrooms:
         for bedroom in bedrooms:
@@ -346,7 +351,7 @@ def search(request):
         objects = objects.filter(q_objects)
 
     objects = filter_objects_within_range(min_price, max_price, objects)
-
+    print(objects)
     # Set the number of items per page
     items_per_page = 6
     paginator = Paginator(objects, items_per_page)

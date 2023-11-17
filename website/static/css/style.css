@@ -785,6 +785,15 @@ a:hover{
     margin-bottom: 15px;
     color: var(--dark);
     border-color: var(--dark);
+    background-color: #fff;
+}
+.btn-filters-inner:hover{
+    color: white;
+    background-color: var(--btnglow);
+}
+.btn-filters-inner:active{
+    color: white;
+    background-color: var(--primary);
 }
 .filter_res{
     text-align: center;
@@ -829,6 +838,8 @@ a:hover{
 	font-size: 16px;
 	font-weight: 400;
 	width: 80%;
+    margin-top: 2px;
+    color: var(--dark);
 }
 .search_input::placeholder{
     color: var(--dark);
@@ -838,7 +849,7 @@ a:hover{
     padding: .5rem .5rem;
 }
 
-#indicate-scroll{
+.indicate-scroll{
     animation: scrollAnimation 0.8s infinite alternate;
 }
 @keyframes scrollAnimation {
@@ -860,6 +871,9 @@ transform: translateX(5px); /* Adjust the distance to scroll */
   margin-bottom: 0 !important;
       
 } 
+.modal-dialog-scrollable .modal-content{
+    min-height: 100%;
+}
 
 .modal.show .modal-dialog {
     transform: none;
