@@ -31,42 +31,42 @@
                     <div class="owl-carousel header-carousel">
                         {% if property.property_image2%}
                         <div class="owl-carousel-item">
-                            <img class="img-fluid" src="{{property.property_image2}}" alt="">
+                            <img class="img-fluid" src="{{property.property_image2}}" alt="{{property.property_name}}">
                         </div>
                         {%endif%}
                         {% if property.property_image3%}
                         <div class="owl-carousel-item">
-                            <img class="img-fluid" src="{{property.property_image3}}" alt="">
+                            <img class="img-fluid" src="{{property.property_image3}}" alt="{{property.property_name}}">
                         </div>
                         {%endif%}
                         {% if property.property_image4%}
                         <div class="owl-carousel-item">
-                            <img class="img-fluid" src="{{property.property_image4}}" alt="">
+                            <img class="img-fluid" src="{{property.property_image4}}" alt="{{property.property_name}}">
                         </div>
                         {%endif%}
                         {% if property.property_image5%}
                         <div class="owl-carousel-item">
-                            <img class="img-fluid" src="{{property.property_image5}}" alt="">
+                            <img class="img-fluid" src="{{property.property_image5}}" alt="{{property.property_name}}">
                         </div>
                         {%endif%}
                         {% if property.property_image6%}
                         <div class="owl-carousel-item">
-                            <img class="img-fluid" src="{{property.property_image6}}" alt="">
+                            <img class="img-fluid" src="{{property.property_image6}}" alt="{{property.property_name}}">
                         </div>
                         {%endif%}
                         {% if property.property_image7%}
                         <div class="owl-carousel-item">
-                            <img class="img-fluid" src="{{property.property_image7}}" alt="">
+                            <img class="img-fluid" src="{{property.property_image7}}" alt="{{property.property_name}}">
                         </div>
                         {%endif%}
                         {% if property.property_image8%}
                         <div class="owl-carousel-item">
-                            <img class="img-fluid" src="{{property.property_image8}}" alt="">
+                            <img class="img-fluid" src="{{property.property_image8}}" alt="{{property.property_name}}">
                         </div>
                         {%endif%}
                         {% if property.property_image9%}
                         <div class="owl-carousel-item">
-                            <img class="img-fluid" src="{{property.property_image9}}" alt="">
+                            <img class="img-fluid" src="{{property.property_image9}}" alt="{{property.property_name}}">
                         </div>
                         {%endif%}
                     </div>
@@ -221,12 +221,12 @@
                     <div class="bg-white rounded p-4" style="border: 1px dashed var(--primary)">
                         <div class="row g-5 align-items-center">
                             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                                <img class="img-fluid rounded w-100" src="https://static.independent.co.uk/2023/07/14/13/iStock-1333035210.jpg" alt="">
+                                <img class="img-fluid rounded w-100" src="{% static 'img/contact.webp' %}" alt="My Agent real estate dubai" loading="lazy">
                             </div>
                             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                                 <div class="mb-4">
                                     <h1 class="mb-3">Contact Our Agent</h1>
-                                    <p>Eirmod sed ipsum dolor sit rebum magna erat. Tempor lorem kasd vero ipsum sit sit diam justo sed vero dolor duo.</p>
+                                    <p>Contact our real estate agents to discover the perfect investment opportunity in Dubai, offering a diverse range of luxury apartments, stunning villas, and exquisite penthouses.</p>
                                 </div>
                                 <a href="tel:+971 50 477 4714" class="btn btn-primary py-3 px-4 me-2"><i class="fa fa-phone-alt me-2"></i>Make A Call</a>
                                 <a href="https://api.whatsapp.com/send?phone=+971504774714&text=Hello! I'm interested in {{property.property_name}}. Could you help me?" class="btn btn-dark py-3 px-4" id="contactbutton"><i class="fa fa-calendar-alt me-2"></i>Get Appoinment</a>
