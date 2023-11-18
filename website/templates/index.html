@@ -27,13 +27,13 @@
                 <div class="col-md-6 animated fadeIn">
                     <div class="owl-carousel header-carousel">
                         <div class="owl-carousel-item">
-                            <img class="img-fluid" src="{{slider_photo.image1}}" alt="" loading="lazy">
+                            <img class="img-fluid" src="{{slider_photo.image1}}" alt="My Agent real estate dubai" loading="lazy">
                         </div>
                         <div class="owl-carousel-item">
-                            <img loading="lazy" class="img-fluid" src="{{slider_photo.image2}}" alt="">
+                            <img loading="lazy" class="img-fluid" src="{{slider_photo.image2}}" alt="My Agent real estate dubai">
                         </div>
                         <div class="owl-carousel-item">
-                            <img loading="lazy" class="img-fluid" src="{{slider_photo.image3}}" alt="">
+                            <img loading="lazy" class="img-fluid" src="{{slider_photo.image3}}" alt="My Agent real estate dubai">
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="{% if forloop.counter0|divisibleby:3 %}0.1s{% elif forloop.counter0|add:1|divisibleby:3 %}0.5s{% else %}0.3s{% endif %}">
                                 <div class="property-item rounded overflow-hidden" style="height: 100%;">
                                     <div class="position-relative overflow-hidden">
-                                        <a href="/property?id={{property.id}}"><img loading="lazy" class="img-fluid" src="{{property.property_image1}}" alt=""></a>
+                                        <a href="/property?id={{property.id}}"><img loading="lazy" class="img-fluid" src="{{property.property_image1}}" alt="My Agent real estate dubai"></a>
                                         <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-2 py-1 px-3">{{property.property_type}}</div>
                                         <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">{{property.property_accommodation_type}}</div>
                                     </div>
@@ -106,7 +106,7 @@
                     <div class="bg-white rounded p-4" style="border: 1px dashed var(--primary)">
                         <div class="row g-5 align-items-center">
                             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                                <img class="img-fluid rounded w-100" src="https://static.independent.co.uk/2023/07/14/13/iStock-1333035210.jpg" alt="">
+                                <img class="img-fluid rounded w-100" src="{% static 'img/contact.webp' %}" alt="My Agent real estate dubai" loading="lazy">
                             </div>
                             <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                                 <div class="mb-4">
