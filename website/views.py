@@ -31,9 +31,19 @@ def parse_all(request):
 def main(request):
     slider = Slider.objects.filter()[0]
     objects = Property.objects.all()[:6]
-    context = {"slider_photo": slider, "properties": objects}
+    reviews = Reviews.objects.filter()
+    context = {"slider_photo": slider, "properties": objects, "reviews": reviews}
     template = loader.get_template("index.html")
     return HttpResponse(template.render(context, request))
+
+
+def get_category(array):
+    category = []
+    for el in array:
+        for cat in el.split(","):
+            category.append(cat.replace(" ", "", 5))
+    category = list(set(category))
+    print(category)
 
 
 def search_property(request):
@@ -51,6 +61,10 @@ def search_property(request):
     locations_list = list(
         set(Property.objects.values_list("property_location", flat=True))
     )
+    type_list = list(
+        set(Property.objects.values_list("property_accommodation_type", flat=True))
+    )
+    get_category(type_list)
     objects = Property.objects.all()
 
     if keyword:
@@ -88,10 +102,14 @@ def search_property(request):
     page_obj = paginator.get_page(page_number)
 
     properties = Property.objects.filter()
+    beds = Bed.objects.filter()
+    categories = Category.objects.filter()
     context = {
         "page_obj": page_obj,
         "locations": sorted(locations_list),
         "developers": sorted(developers_list),
+        "beds": beds,
+        "categories": categories,
     }
 
     template = loader.get_template("property-list.html")
@@ -114,7 +132,13 @@ def search(request):
     locations_list = list(
         set(Property.objects.values_list("property_location", flat=True))
     )
-    objects = Property.objects.all()  # Retrieve your data
+    type_list = list(
+        set(Property.objects.values_list("property_accommodation_type", flat=True))
+    )
+
+    print(type_list)
+
+    objects = Property.objects.all()
 
     if keyword:
         objects = objects.filter(property_name__contains=keyword)

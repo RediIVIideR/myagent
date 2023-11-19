@@ -24,6 +24,59 @@ class Slider(models.Model):
         verbose_name_plural = "Slider"
 
 
+class Category(models.Model):
+    category = models.TextField("Category", default="", max_length=5000, blank=True)
+
+    def __str__(self):
+        return self.category
+
+    class Meta:
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
+
+
+class Bed(models.Model):
+    bed = models.TextField("Bedrooms", default="", max_length=5000, blank=True)
+    bed_value = models.TextField(
+        "Bedroom Value (Do not put/edit anything here)",
+        default="",
+        max_length=5000,
+        blank=True,
+    )
+
+    def __str__(self):
+        return self.bed
+
+    def save(self, *args, **kwargs):
+        if self.bed:
+            self.bed_value = self.bed.split(" ")[0]
+
+        super().save(*args, **kwargs)
+
+    class Meta:
+        verbose_name = "Bedroom"
+        verbose_name_plural = "Bedrooms"
+
+
+class Reviews(OrderedModel):
+    client_name = models.TextField(
+        "Client Name", default="", max_length=5000, blank=True
+    )
+    client_review = models.TextField(
+        "Client Review", default="", max_length=50000, blank=True
+    )
+    client_image = models.FileField(("Client Photo"), upload_to="media/reviews")
+    order = models.PositiveIntegerField(editable=False, db_index=True)
+
+    def __str__(self):
+        return "Main Page Reviews"
+
+    class Meta:
+        verbose_name = "Review"
+        verbose_name_plural = "Reviews"
+        ordering = ("order",)
+
+
 class Property(OrderedModel):
     property_name = models.TextField(
         ("Property Name"), default="", max_length=5000, blank=True

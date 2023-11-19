@@ -1,8 +1,6 @@
 function uncheck_all() {
 
     var checkboxes = document.querySelectorAll('input[type="checkbox"]');
-
-            // Find the corresponding checkbox based on the value
             for (var i = 0; i < checkboxes.length; i++) {
                 var checkbox = checkboxes[i];
                 checkbox.checked = false;
@@ -13,7 +11,6 @@ function uncheck(classname) {
 
     var checkboxes = document.querySelectorAll('.'+classname);
 
-            // Find the corresponding checkbox based on the value
             for (var i = 0; i < checkboxes.length; i++) {
                 var checkbox = checkboxes[i];
                 checkbox.checked = false;
@@ -176,7 +173,7 @@ function check_search(page) {
     maxprice = document.getElementById('range-max').value;
     priceButton = document.getElementsByClassName('price')[0];
 
-    if (minprice !== '200000' || maxprice !== '30000000') {
+    if (minprice !== '40000' || maxprice !== '30000000') {
         priceButton.classList.add('btn-filters-active');
     } else {
         priceButton.classList.remove('btn-filters-active');
@@ -194,21 +191,19 @@ function check_search(page) {
     })
     .then(response => response.text())
     .then(data => {
-        console.log(data);
         document.getElementById('res').innerHTML = data;
  
     });
 }
 
 document.getElementById('search_backend').oninput = function() {
-    var variableToPass = ""; // Replace this with your variable
+    var variableToPass = "";
     check_search(variableToPass);
 };
 
 document.addEventListener('DOMContentLoaded', function() {
     var clearButtons = document.getElementsByClassName('clear');
     var applyButtons = document.getElementsByClassName('apply');
-    console.log(applyButtons);
 
     var applyButtonsArray = Array.from(applyButtons);
     var clearButtonsArray = Array.from(clearButtons);
@@ -260,35 +255,25 @@ document.addEventListener('DOMContentLoaded', function() {
         search(this, list_loc); 
     });
 
-    document.getElementById('clear-price').addEventListener('click',function () {
-        document.getElementById('price-filter').innerHTML = `<div class="price-input">
-        <div class="field">
-          <span>Min AED</span>
-          <input type="number" class="input-min" value="200000">
-        </div>
-        <div class="separator">-</div>
-        <div class="field">
-          <span>Max AED</span>
-          <input type="number" class="input-max" value="30000000">
-        </div>
-      </div>
-      <div class="slider">
-        <div class="progress"></div>
-      </div>
-      <div class="range-input">
-        <input type="range" class="range-min" id="range-min" min="200000" max="30000000" value="200000" step="100000">
-        <input type="range" class="range-max" id="range-max" min="0" max="30000000" value="30000000" step="500000">
-      </div>`;
-
-      check_search('')
-        
-    });
 
     document.getElementById('clear-all').onclick = function(){
         uncheck_all();
         document.getElementById('clear-price').click();
         check_search('');
     }
+
+    document.getElementById('clear-price').addEventListener('click',function () {
+        document.getElementsByClassName('range-min')[0].value = "40000";
+        document.getElementsByClassName('range-min')[0].style.left = "0%";
+        document.querySelector(".slider .progress").style.left = "0%";
+        document.getElementsByClassName('range-max')[0].value = "30000000";
+        document.getElementsByClassName('input-min')[0].value = "40000";
+        document.getElementsByClassName('input-max')[0].value = "30000000";
+        update_price_filter();
+    
+          check_search('')
+            
+        });
 });
 
 

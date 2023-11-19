@@ -1,7 +1,8 @@
-const rangeInput = document.querySelectorAll(".range-input input"),
-  priceInput = document.querySelectorAll(".price-input input"),
-  range = document.querySelector(".slider .progress");
-let priceGap = 3000;
+function update_price_filter() {
+  const rangeInput = document.querySelectorAll(".range-input input"),
+priceInput = document.querySelectorAll(".price-input input"),
+range = document.querySelector(".slider .progress");
+let priceGap = 30000;
 
 priceInput.forEach((input) => {
   input.addEventListener("input", (e) => {
@@ -39,3 +40,5 @@ rangeInput.forEach((input) => {
     }
   });
 });
+};
+update_price_filter();

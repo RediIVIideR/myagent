@@ -134,104 +134,21 @@
                     <p>Our clients' reviews showcase their satisfaction and experiences with our real estate services in Dubai, reflecting our commitment to excellence in the industry.</p>
                 </div>
                 <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+
+                    {%for review in reviews%}
                     <div class="testimonial-item bg-light rounded p-3">
                         <div class="bg-white border rounded p-4">
-                            <p>Sona was a delightful and pleasant human being to deal with.
-                                The experience was bar none and she made the whole process
-                                seamless. She wasn't a pushy saleswoman but caring,
-                                understanding and forthright. Anyone that has her as their
-                                representative will have a win win experience. Thanks Sona.</p>
+                            <p>{{review.client_review}}</p>
                             <div class="d-flex align-items-center">
-                                <img loading="lazy" class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-1.jpg' %}" style="width: 45px; height: 45px;">
+                                <img loading="lazy" class="img-fluid flex-shrink-0 rounded" src="{{review.client_image}}" style="width: 45px; height: 45px;">
                                 <div class="ps-3">
-                                    <h6 class="fw-bold mb-1">Jeff Mathew</h6>
+                                    <h6 class="fw-bold mb-1">{{review.client_name}}</h6>
                                     <small>Client</small>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="testimonial-item bg-light rounded p-3">
-                        <div class="bg-white border rounded p-4">
-                            <p>I'm greatful for a successful and professional sale with the
-                                agent Sona, she's very knowledgeable and helpful and having
-                                good connections to close the deal, the best agent to deal with
-                                from both professional and personal sides</p>
-                            <div class="d-flex align-items-center">
-                                <img loading="lazy" class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-2.jpg' %}" style="width: 45px; height: 45px;">
-                                <div class="ps-3">
-                                    <h6 class="fw-bold mb-1">Johnny Chalhoub</h6>
-                                    <small>Client</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-light rounded p-3">
-                        <div class="bg-white border rounded p-4">
-                            <p>Thank you Sona Idiculay for all your help in selling our home.
-                                Your knowledge in the property market, attention to detail
-                                made the process easy and lucrative for us, and we couldn't be
-                                happier we chose you to list our property.</p>
-                            <div class="d-flex align-items-center">
-                                <img loading="lazy" class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-3.jpg' %}" style="width: 45px; height: 45px;">
-                                <div class="ps-3">
-                                    <h6 class="fw-bold mb-1">Payal Bhatia</h6>
-                                    <small>Client</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-light rounded p-3">
-                        <div class="bg-white border rounded p-4">
-                            <p>Sona Idiculay is one of the genuine real estate person
-                            in Dubai.
-                            Very honest advice and opinion.
-                            Sona keeps the clients interest at forefront.
-                            Had a very good experience with her in selling and then
-                            buying a property.
-                            She went out of way to get the best possible deals
-                            both times.</p>
-                            <div class="d-flex align-items-center">
-                                <img loading="lazy" class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-3.jpg' %}" style="width: 45px; height: 45px;">
-                                <div class="ps-3">
-                                    <h6 class="fw-bold mb-1">Kishore Bhatia</h6>
-                                    <small>Client</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-light rounded p-3" style="min-width: 400px;">
-                        <div class="bg-white border rounded p-4">
-                            <p>I had an amazing experience with Sona who had assisted me in purchase. I was new here and she was very kind and I could trust her . She never approached as a typical person who would bother or push rather very patient and really gave us time and space. If ever again my next purchase or sale I highly recommend Sona and once again thank u for ur assistance.</p>
-                            <div class="d-flex align-items-center">
-                                <img loading="lazy" class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-3.jpg' %}" style="width: 45px; height: 45px;">
-                                <div class="ps-3">
-                                    <h6 class="fw-bold mb-1">Smita Kumari</h6>
-                                    <small>Client</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- <div class="testimonial-item bg-light rounded p-3">
-                        <div class="bg-white border rounded p-4">
-                            <p>I had a complicated Azizi off plan project which I
-                                bought few years back and I couldn't find a way to sell
-                                until I was referred to Mrs. Sona Idiculay who someone
-                                managed to find a buyer, follow up with all legalities
-                                and make the sale within a short period of time. I am
-                                impressed with her dedication, professionalism,
-                                honesty and willingness to go extra mile for clients
-                                even though she has little or less financial gain.
-                                I would definitely recommend her to anyone looking to
-                                manage, buy or sell her property in Dubai.</p>
-                            <div class="d-flex align-items-center">
-                                <img loading="lazy" class="img-fluid flex-shrink-0 rounded" src="{% static 'img/testimonial-3.jpg' %}" style="width: 45px; height: 45px;">
-                                <div class="ps-3">
-                                    <h6 class="fw-bold mb-1">John Louis</h6>
-                                    <small>Client</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+                    {%endfor%}
                 </div>
             </div>
         </div>
