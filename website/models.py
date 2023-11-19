@@ -77,6 +77,22 @@ class Reviews(OrderedModel):
         ordering = ("order",)
 
 
+class Gallery(models.Model):
+    image1 = models.FileField(("Image 1 (max size 150x150)"), upload_to="media/gallery")
+    image2 = models.FileField(("Image 2 (max size 150x150)"), upload_to="media/gallery")
+    image3 = models.FileField(("Image 3 (max size 150x150)"), upload_to="media/gallery")
+    image4 = models.FileField(("Image 4 (max size 150x150)"), upload_to="media/gallery")
+    image5 = models.FileField(("Image 5 (max size 150x150)"), upload_to="media/gallery")
+    image6 = models.FileField(("Image 6 (max size 150x150)"), upload_to="media/gallery")
+
+    def __str__(self):
+        return "Gallery"
+
+    class Meta:
+        verbose_name = "Gallery"
+        verbose_name_plural = "Gallery"
+
+
 class Property(OrderedModel):
     property_name = models.TextField(
         ("Property Name"), default="", max_length=5000, blank=True

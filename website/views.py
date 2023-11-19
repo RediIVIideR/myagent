@@ -32,7 +32,13 @@ def main(request):
     slider = Slider.objects.filter()[0]
     objects = Property.objects.all()[:6]
     reviews = Reviews.objects.filter()
-    context = {"slider_photo": slider, "properties": objects, "reviews": reviews}
+    gallery = Gallery.objects.filter()[0]
+    context = {
+        "slider_photo": slider,
+        "properties": objects,
+        "reviews": reviews,
+        "gallery": gallery,
+    }
     template = loader.get_template("index.html")
     return HttpResponse(template.render(context, request))
 
@@ -104,12 +110,15 @@ def search_property(request):
     properties = Property.objects.filter()
     beds = Bed.objects.filter()
     categories = Category.objects.filter()
+    gallery = Gallery.objects.filter()[0]
+
     context = {
         "page_obj": page_obj,
         "locations": sorted(locations_list),
         "developers": sorted(developers_list),
         "beds": beds,
         "categories": categories,
+        "gallery": gallery,
     }
 
     template = loader.get_template("property-list.html")
@@ -196,6 +205,7 @@ def show_property(request):
     payment_plan = project.property_payment_plan.split("^")
     highlights = project.property_highlights.split("^")
     units = project.property_units.split("^")
+    gallery = Gallery.objects.filter()[0]
 
     context = {
         "property": project,
@@ -205,6 +215,7 @@ def show_property(request):
         "payment": payment_plan,
         "highlights": highlights,
         "units": units,
+        "gallery": gallery,
     }
     template = loader.get_template("property.html")
     return HttpResponse(template.render(context, request))

@@ -19,32 +19,44 @@
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-white mb-4">Photo Gallery</h5>
                 <div class="row g-2 pt-2">
-                    <div class="col-4">
-                        <img class="img-fluid rounded bg-light p-1" width="150" src="{% static 'img/1.jpg' %}" alt="Real Estate Dubai My Agent" loading="lazy">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid rounded bg-light p-1" width="150" src="{% static 'img/1.jpg' %}" alt="Real Estate Dubai My Agent" loading="lazy">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid rounded bg-light p-1" width="150" src="{% static 'img/1.jpg' %}" alt="Real Estate Dubai My Agent" loading="lazy">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid rounded bg-light p-1" width="150" src="{% static 'img/1.jpg' %}" alt="Real Estate Dubai My Agent" loading="lazy">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid rounded bg-light p-1" width="150" src="{% static 'img/1.jpg' %}" alt="Real Estate Dubai My Agent" loading="lazy">
-                    </div>
-                    <div class="col-4">
-                        <img class="img-fluid rounded bg-light p-1" width="150" src="{% static 'img/1.jpg' %}" alt="Real Estate Dubai My Agent" loading="lazy">
-                    </div>
+                    {% if gallery.image1%}
+                        <div class="col-4">
+                            <img class="img-fluid rounded bg-light p-1" width="150" src="{{gallery.image1}}" alt="Real Estate Dubai My Agent" loading="lazy">
+                        </div>
+                    {%endif%}
+                    {% if gallery.image2%}
+                        <div class="col-4">
+                            <img class="img-fluid rounded bg-light p-1" width="150" src="{{gallery.image2}}" alt="Real Estate Dubai My Agent" loading="lazy">
+                        </div>
+                    {%endif%}
+                    {% if gallery.image3%}
+                        <div class="col-4">
+                            <img class="img-fluid rounded bg-light p-1" width="150" src="{{gallery.image3}}" alt="Real Estate Dubai My Agent" loading="lazy">
+                        </div>
+                    {%endif%}
+                    {% if gallery.image4%}
+                        <div class="col-4">
+                            <img class="img-fluid rounded bg-light p-1" width="150" src="{{gallery.image4}}" alt="Real Estate Dubai My Agent" loading="lazy">
+                        </div>
+                    {%endif%}
+                    {% if gallery.image5%}
+                        <div class="col-4">
+                            <img class="img-fluid rounded bg-light p-1" width="150" src="{{gallery.image5}}" alt="Real Estate Dubai My Agent" loading="lazy">
+                        </div>
+                    {%endif%}
+                    {% if gallery.image6%}
+                        <div class="col-4">
+                            <img class="img-fluid rounded bg-light p-1" width="150" src="{{gallery.image6}}" alt="Real Estate Dubai My Agent" loading="lazy">
+                        </div>
+                    {%endif%}
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
                 <h5 class="text-white mb-4">Contact</h5>
                 <p>Leave you phone number, so we can contact you</p>
                 <div class="position-relative mx-auto" style="max-width: 400px;">
-                    <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter">
-                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Submit</button>
+                    <a href="https://api.whatsapp.com/send?phone=+971504774714&text=Hello!%20I%27m%20interested%20in%20real%20estate. Could you help me?"><input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter">
+                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Submit</button></a>
                 </div>
             </div>
         </div>

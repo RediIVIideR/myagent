@@ -7,6 +7,7 @@ admin.site.register(Slider)
 admin.site.register(MainPageProperty)
 admin.site.register(Category)
 admin.site.register(Bed)
+admin.site.register(Gallery)
 
 
 class ItemAdmin(OrderedModelAdmin):
