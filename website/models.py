@@ -93,6 +93,17 @@ class Gallery(models.Model):
         verbose_name_plural = "Gallery"
 
 
+class ProfileImage(models.Model):
+    profile_image = models.FileField(("Profile Image"), upload_to="media/profile")
+
+    def __str__(self):
+        return "Profile Image"
+
+    class Meta:
+        verbose_name = "Profile Image"
+        verbose_name_plural = "Profile Image"
+
+
 class Property(OrderedModel):
     property_name = models.TextField(
         ("Property Name"), default="", max_length=5000, blank=True
@@ -229,8 +240,3 @@ class Property(OrderedModel):
         verbose_name_plural = "Properties"
         ordering = ("order",)
         # ordering = ["date"]
-
-
-class MainPageProperty(Property):
-    class Meta:
-        proxy = True

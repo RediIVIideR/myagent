@@ -33,23 +33,25 @@ def main(request):
     objects = Property.objects.all()[:6]
     reviews = Reviews.objects.filter()
     gallery = Gallery.objects.filter()[0]
+    profile_image = ProfileImage.objects.filter()[0]
     context = {
         "slider_photo": slider,
         "properties": objects,
         "reviews": reviews,
         "gallery": gallery,
+        "profile_image": profile_image,
     }
     template = loader.get_template("index.html")
     return HttpResponse(template.render(context, request))
 
 
-def get_category(array):
-    category = []
-    for el in array:
-        for cat in el.split(","):
-            category.append(cat.replace(" ", "", 5))
-    category = list(set(category))
-    print(category)
+# def get_category(array):
+#     category = []
+#     for el in array:
+#         for cat in el.split(","):
+#             category.append(cat.replace(" ", "", 5))
+#     category = list(set(category))
+#     print(category)
 
 
 def search_property(request):
@@ -111,6 +113,7 @@ def search_property(request):
     beds = Bed.objects.filter()
     categories = Category.objects.filter()
     gallery = Gallery.objects.filter()[0]
+    profile_image = ProfileImage.objects.filter()[0]
 
     context = {
         "page_obj": page_obj,
@@ -119,6 +122,7 @@ def search_property(request):
         "beds": beds,
         "categories": categories,
         "gallery": gallery,
+        "profile_image": profile_image,
     }
 
     template = loader.get_template("property-list.html")
@@ -206,7 +210,7 @@ def show_property(request):
     highlights = project.property_highlights.split("^")
     units = project.property_units.split("^")
     gallery = Gallery.objects.filter()[0]
-
+    profile_image = ProfileImage.objects.filter()[0]
     context = {
         "property": project,
         "amenities": amenities,
@@ -216,6 +220,7 @@ def show_property(request):
         "highlights": highlights,
         "units": units,
         "gallery": gallery,
+        "profile_image": profile_image,
     }
     template = loader.get_template("property.html")
     return HttpResponse(template.render(context, request))

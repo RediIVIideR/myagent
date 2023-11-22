@@ -4,7 +4,7 @@ from ordered_model.admin import OrderedModelAdmin
 
 # Register your models here.
 admin.site.register(Slider)
-admin.site.register(MainPageProperty)
+admin.site.register(ProfileImage)
 admin.site.register(Category)
 admin.site.register(Bed)
 admin.site.register(Gallery)
